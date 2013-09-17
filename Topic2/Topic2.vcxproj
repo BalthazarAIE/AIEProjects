@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>C:\Users\justinl\Documents\Topic2\libs\FreeImage\include;C:\Users\justinl\Documents\Topic2\libs\glfw\include;C:\Users\justinl\Documents\Topic2\libs\glew\include;C:\Users\justinl\Documents\Topic2\AIE_GL_Framework\VS_100;C:\Users\justinl\Documents\Topic2\include;C:\Users\justinl\Documents\Topic2\AIE_GL_Framework;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\justinl\Documents\Topic2\libs\FreeImage\lib;C:\Users\justinl\Documents\Topic2\libs\glew\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\justinl\Documents\Topic2\libs;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="aie_gl_framework\source\main.cpp" />
+    <ClCompile Include="aie_gl_framework\source\main2.cpp" />
+    <ClCompile Include="aie_gl_framework\vs_100\Topic2.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\BatchLoad.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\CloneMultiPage.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\CreateAlpha.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\FIFImportExport.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\FIIO_Mem.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\LoadFromHandle.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\LoadFromMemory-classified.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\LoadFromMemory.cpp" />
+    <ClCompile Include="libs\freeimage\examples\generic\ShowMetadata.cpp" />
+    <ClCompile Include="libs\freeimage\examples\linux\linux-gtk.c" />
+    <ClCompile Include="libs\freeimage\examples\linux\linux-svgalib.c" />
+    <ClCompile Include="libs\freeimage\examples\opengl\texturemanager\TextureManager.cpp" />
+    <ClCompile Include="libs\freeimage\examples\plugin\PluginCradle.cpp" />
+    <ClCompile Include="libs\tinyxml\tinystr.cpp" />
+    <ClCompile Include="libs\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="libs\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="libs\tinyxml\tinyxmlHelper.cpp" />
+    <ClCompile Include="libs\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="source\Utilities.cpp" />
+    <ClCompile Include="source\Visualiser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aie_gl_framework\vs_100\Topic2.h" />
+    <ClInclude Include="include\MathHelper.h" />
+    <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="include\Visualiser.h" />
+    <ClInclude Include="libs\freeimage\examples\generic\FIIO_Mem.h" />
+    <ClInclude Include="libs\freeimage\examples\opengl\texturemanager\TextureManager.h" />
+    <ClInclude Include="libs\freeimage\examples\plugin\PluginCradle.h" />
+    <ClInclude Include="libs\freeimage\include\FreeImage.h" />
+    <ClInclude Include="libs\glew\include\gl\glew.h" />
+    <ClInclude Include="libs\glew\include\gl\glxew.h" />
+    <ClInclude Include="libs\glew\include\gl\wglew.h" />
+    <ClInclude Include="libs\glfw\include\gl\glfw.h" />
+    <ClInclude Include="libs\tinyxml\tinystr.h" />
+    <ClInclude Include="libs\tinyxml\tinyxml.h" />
+    <ClInclude Include="libs\tinyxml\tinyxmlHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\glew\doc\advanced.html" />
+    <None Include="libs\glew\doc\basic.html" />
+    <None Include="libs\glew\doc\build.html" />
+    <None Include="libs\glew\doc\credits.html" />
+    <None Include="libs\glew\doc\glew.html" />
+    <None Include="libs\glew\doc\glxew.html" />
+    <None Include="libs\glew\doc\index.html" />
+    <None Include="libs\glew\doc\install.html" />
+    <None Include="libs\glew\doc\log.html" />
+    <None Include="libs\glew\doc\wglew.html" />
+    <None Include="libs\glfw\readme.html" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
