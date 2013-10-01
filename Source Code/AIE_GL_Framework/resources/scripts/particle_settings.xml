@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ParticleSettings>
+
+	<Setting name="FIRE" >
+		<Value id="1" 	type="NumParticles" 	  val="5000" 						        />
+		<Value id="2" 	type="EmitterPosition" 	x="0.0" 	y="0.0"		z="0.0"	  />
+		<Value id="3" 	type="EmitterSize" 		  x="1.0"	  y="0.1"		z="1.0"	  />
+		<Value id="4" 	type="EmissionRate"		  val="1000"						        />
+		<Value id="5" 	type="ParticleSizeMin"	x="0.4" 	y="0.6"				      />
+		<Value id="6" 	type="ParticleSizeMax"	x="0.6" 	y="1.6"				      />
+		<Value id="7" 	type="VelocityMin" 		  x="0.2"		y="2.0"		z="-0.2"  />
+		<Value id="8" 	type="VelocityMax" 		  x="0.3"		y="3.5"		z="0.2"   />
+		<Value id="9" 	type="Gravity"			    x="0.0"		y="0.0"		z="0.0"   />
+		<Value id="10" 	type="Wind"				      x="0.5"		y="0.0"		z="0.0"   />
+		<Value id="11"	type="Energy"			      min="0.1"	max="0.91"			    />
+		<Value id="12" 	type="Loop"				      val="1"						            />
+		<Value id="13"	type="Texture"			    filename="fire2.png"				  />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="0"                         />
+	</Setting>
+
+  <Setting name="SMOKE" >
+    <Value id="1" 	type="NumParticles" 	  val="2000" 						        />
+    <Value id="2" 	type="EmitterPosition" 	x="0.0" 	  y="1.2"		z="0.0"	/>
+    <Value id="3" 	type="EmitterSize" 		  x="0.1"	    y="0.1"		z="0.1"	/>
+    <Value id="4" 	type="EmissionRate"		  val="150"					  	        />
+    <Value id="5" 	type="ParticleSizeMin"	x="1.1" 	y="1.1"				      />
+    <Value id="6" 	type="ParticleSizeMax"	x="1.1" 	y="1.1"				      />
+    <Value id="7" 	type="VelocityMin" 		  x="0.2"	  y="2.0"		z="-0.2"  />
+    <Value id="8" 	type="VelocityMax" 		  x="1.5"		y="3.5"		z="0.2"   />
+    <Value id="9" 	type="Gravity"			    x="0.0"		y="0.0"		z="0.0"   />
+    <Value id="10" 	type="Wind"				      x="1.0"		y="0.0"		z="0.0"   />
+    <Value id="11"	type="Energy"			      min="3.7"	max="2.91"			    />
+    <Value id="12" 	type="Loop"				      val="1"						            />
+    <Value id="13"	type="Texture"			    filename="smoke2.png"				  />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="0"                         />
+  </Setting>
+
+  <Setting name="RAIN" >
+    <Value id="1" 	type="NumParticles" 	  val="3000" 						        />
+    <Value id="2" 	type="EmitterPosition" 	x="0.0" 	y="20.5"	  z="0.0"	/>
+    <Value id="3" 	type="EmitterSize" 		  x="20.9"	y="0.5"     z="20.9"/>
+    <Value id="4" 	type="EmissionRate"		  val="500"					  	        />
+    <Value id="5" 	type="ParticleSizeMin"	x="0.01" 	y="0.6"				      />
+    <Value id="6" 	type="ParticleSizeMax"	x="0.01" 	y="1.6"				      />
+    <Value id="7" 	type="VelocityMin" 		  x="-0.2"	y="-2.5"		z="-0.2"/>
+    <Value id="8" 	type="VelocityMax" 		  x="0.3"		y="-2.5"		z="0.2" />
+    <Value id="9" 	type="Gravity"			    x="0.0"		y="-5.0"		z="0.0" />
+    <Value id="10" 	type="Wind"				      x="0.0"		y="0.0"		  z="0.0" />
+    <Value id="11"	type="Energy"			      min="4.1"	max="4.91"			    />
+    <Value id="12" 	type="Loop"				      val="1"						            />
+    <Value id="13"	type="Texture"			    filename="rain.png"				    />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="0"                         />
+  </Setting>
+
+  <Setting name="MANA" >
+    <Value id="1" 	type="NumParticles" 	  val="3000" 						          />
+    <Value id="2" 	type="EmitterPosition" 	x="0.0" 	y="0.0"	  z="0.0"	    />
+    <Value id="3" 	type="EmitterSize" 		  x="0.2"	y="0.2"     z="0.2"     />
+    <Value id="4" 	type="EmissionRate"		  val="600"					  	          />
+    <Value id="5" 	type="ParticleSizeMin"	x="0.5" 	y="0.5"				        />
+    <Value id="6" 	type="ParticleSizeMax"	x="2.0" 	y="2.0"				        />
+    <Value id="7" 	type="VelocityMin" 		  x="-1.0"	y="-1.0"		z="-1.0"  />
+    <Value id="8" 	type="VelocityMax" 		  x="1.0"		y="1.0"		z="1.0"     />
+    <Value id="9" 	type="Gravity"			    x="0.0"		y="0.0"		z="0.0"     />
+    <Value id="10" 	type="Wind"				      x="0.0"		y="0.0"		  z="0.0"   />
+    <Value id="11"	type="Energy"			      min="3.1"	max="4.91"			      />
+    <Value id="12" 	type="Loop"				      val="1"						              />
+    <Value id="13"	type="Texture"			    filename="smoke2.png"				    />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="0"                         />
+  </Setting>
+
+  <Setting name="CUBES" >
+    <Value id="1" 	type="NumParticles" 	  val="5000" 						          />
+    <Value id="2" 	type="EmitterPosition" 	x="-30.0" 	y="-45.0"	  z="30.0"/>
+    <Value id="3" 	type="EmitterSize" 		  x="5.0"	  y="-0.0"   z="5.0"    />
+    <Value id="4" 	type="EmissionRate"		  val="50"					  	            />
+    <Value id="5" 	type="ParticleSizeMin"	x="3.5" 	y="3.5"				        />
+    <Value id="6" 	type="ParticleSizeMax"	x="4.0" 	y="4.0"				        />
+    <Value id="7" 	type="VelocityMin" 		  x="-5.0"	y="6.0"	  z="-5.0"    />
+    <Value id="8" 	type="VelocityMax" 		  x="5.0"		y="10.0"	z="5.0"     />
+    <Value id="9" 	type="Gravity"			    x="0.0"		y="0.0"		z="0.0"     />
+    <Value id="10" 	type="Wind"				      x="0.0"		y="0.0"		z="0.0"     />
+    <Value id="11"	type="Energy"			      min="60.1"	max="60.91"			    />
+    <Value id="12" 	type="Loop"				      val="1"						              />
+    <Value id="13"	type="Texture"			    filename="smoke2.png"				    />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="1"                         />
+  </Setting>
+
+  <Setting name="FLOATING_CUBES" >
+    <Value id="1" 	type="NumParticles" 	  val="5000" 						          />
+    <Value id="2" 	type="EmitterPosition" 	x="0.0" 	y="0.0"	  z="0.0"	    />
+    <Value id="3" 	type="EmitterSize" 		  x="0.0"	  y="0.0"   z="0.0"     />
+    <Value id="4" 	type="EmissionRate"		  val="160"					  	           />
+    <Value id="5" 	type="ParticleSizeMin"	x="1.0" 	y="1.0"				        />
+    <Value id="6" 	type="ParticleSizeMax"	x="2.0" 	y="2.0"				        />
+    <Value id="7" 	type="VelocityMin" 		  x="1.0"	  y="2.0"		z="-4.0"    />
+    <Value id="8" 	type="VelocityMax" 		  x="2.0"		y="4.0"		z="-2.0"    />
+    <Value id="9" 	type="Gravity"			    x="0.0"		y="0.0"		z="0.0"     />
+    <Value id="10" 	type="Wind"				      x="3.0"		y="0.0"		z="0.0"     />
+    <Value id="11"	type="Energy"			      min="30.1"	max="35.91"			    />
+    <Value id="12" 	type="Loop"				      val="1"						              />
+    <Value id="13"	type="Texture"			    filename="smoke2.png"				    />
+    <Value id="14"  type="Colour"           r="1.0" g="1.0" b="1.0" a="1.0" />
+    <Value id="15"  type="3D?"              val="1"                         />
+  </Setting>
+
+
+</ParticleSettings>
