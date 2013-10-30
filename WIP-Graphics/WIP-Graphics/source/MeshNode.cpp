@@ -112,5 +112,5 @@ void MeshNode::Draw()
 	}
 	glBindVertexArray( m_iVAO );
 	glPatchParameteri(GL_PATCH_VERTICES, 3);
-	glDrawElements( GL_PATCHES, m_iNumIndices, GL_UNSIGNED_INT, 0 );
+	glDrawElements( GL_TRIANGLE_STRIP, m_iNumIndices, GL_UNSIGNED_INT, 0 );
 }

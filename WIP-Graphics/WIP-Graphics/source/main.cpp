@@ -44,7 +44,7 @@ std::vector<MeshNode*>	NodesToRender;
 	GLuint					m_iColourID;
 
 //////////////////////////////////////////////////////////////////////////
-int main()
+int main(int argc, TCHAR * argv[] )
 {
 
 	g_Scene = new SceneNode(vec4(0,0,0,0),nullptr);
@@ -68,7 +68,7 @@ void MakeStuff()
 	m_poCamera->SetCameraPosition( AIE::vec4(0.f, 7.f, -80.f, 1.f) );
 	
 	m_poWaterPlane = new PlaneNode(100.f, 100.f, 100, 100, AIE::vec4(0.f, 0.f, 0.f, 1.f));
-	m_poWaterPlane->SetTexture( LoadTexture("./images/crate_sideup.png") );
+	m_poWaterPlane->SetTexture( LoadTexture("./resources/images/crate_sideup.png") );
 	
 
 
@@ -163,11 +163,12 @@ void LoadBasicShader()
 	const char* aszStandardOutputs[]	= { "outColour"			};
 
 	m_iBasicShaderID			= LoadShader(	2, aszStandardInputs, 0, aszStandardOutputs,
-												"./shaders/basic_vertex.glsl",
-												"./shaders/basic_fragment.glsl",
-												"./shaders/basic_geometry.glsl",
-												"./shaders/basic_tess_control.glsl",
-												"./shaders/basic_tess_eval.glsl");
+												"./resources/shaders/basic_vertex.glsl",
+												"./resources/shaders/basic_fragment.glsl"
+											/*	,"./resources/shaders/basic_geometry.glsl",
+												"./resources/shaders/basic_tess_control.glsl",
+												"./resources/shaders/basic_tess_eval.glsl"*/
+												);
 
 	//Set matrix uniforms in the shader
 	m_iProjectionID		= glGetUniformLocation( m_iBasicShaderID,	"Projection"	);
