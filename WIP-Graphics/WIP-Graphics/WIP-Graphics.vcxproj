@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>C:\Users\justinl\Documents\GitHub\AIEProjects\WIP-Graphics\WIP-Graphics\resources;C:\Users\justinl\Documents\GitHub\AIEProjects\WIP-Graphics\WIP-Graphics\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\justinl\Documents\GitHub\AIEProjects\WIP-Graphics\WIP-Graphics\libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\justinl\Documents\GitHub\AIEProjects\WIP-Graphics\WIP-Graphics\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\MeshNode.cpp" />
+    <ClCompile Include="source\PlaneNode.cpp" />
+    <ClCompile Include="source\SceneNode.cpp" />
+    <ClCompile Include="source\Utilities.cpp" />
+    <ClCompile Include="source\Visualiser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AIE.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\CApplication.h" />
+    <ClInclude Include="include\CGameStateManager.h" />
+    <ClInclude Include="include\CInputHandler.h" />
+    <ClInclude Include="include\CRenderManager.h" />
+    <ClInclude Include="include\CubeNode.h" />
+    <ClInclude Include="include\FBXMeshNode.h" />
+    <ClInclude Include="include\FreeImage.h" />
+    <ClInclude Include="include\glfw.h" />
+    <ClInclude Include="include\GSLab02.h" />
+    <ClInclude Include="include\GSLab03.h" />
+    <ClInclude Include="include\GSLab04.h" />
+    <ClInclude Include="include\GSLab05.h" />
+    <ClInclude Include="include\GSLab07.h" />
+    <ClInclude Include="include\GSLab08.h" />
+    <ClInclude Include="include\GSLab09.h" />
+    <ClInclude Include="include\IBaseGameState.h" />
+    <ClInclude Include="include\IcosphereNode.h" />
+    <ClInclude Include="include\MathHelper.h" />
+    <ClInclude Include="include\MeshNode.h" />
+    <ClInclude Include="include\Particle.h" />
+    <ClInclude Include="include\ParticleManager.h" />
+    <ClInclude Include="include\ParticleSystem.h" />
+    <ClInclude Include="include\PlaneNode.h" />
+    <ClInclude Include="include\QuadMesh.h" />
+    <ClInclude Include="include\Quaternion.h" />
+    <ClInclude Include="include\SceneNode.h" />
+    <ClInclude Include="include\Skybox.h" />
+    <ClInclude Include="include\TerrainNode.h" />
+    <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="include\Visualiser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\crate_sideup.png" />
+    <None Include="resources\shaders\basic_fragment.glsl" />
+    <None Include="resources\shaders\basic_geometry.glsl" />
+    <None Include="resources\shaders\basic_tess_control.glsl" />
+    <None Include="resources\shaders\basic_tess_eval.glsl" />
+    <None Include="resources\shaders\basic_vertex.glsl" />
+    <None Include="resources\shaders\StaticFW_Pixel.glsl" />
+    <None Include="resources\shaders\StaticFW_Vertex.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
