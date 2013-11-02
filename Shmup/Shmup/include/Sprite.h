@@ -2,7 +2,7 @@
 #define _SPRITE_H_
 #include "Vector2.h"
 
-enum PlayType {STAIC,ONCE,LOOP,PINGPONG};
+enum PlayType {STATIC,ONCE,LOOP,PINGPONG};
 
 
 class Sprite 
@@ -27,6 +27,8 @@ public:
 	void SetWidth(int a_iWidth);
 	void SetHeight(int a_iHeight);
 	void SetSpriteID(int a_iSpriteID);
+
+	void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type);
 	
 
 
@@ -35,6 +37,7 @@ private:
 	Vector2 m_vPosition;
 	Vector2 m_vVelocity;
 	int m_iSpriteID;
+	unsigned int currentFrame,lastFrame; 
 	int m_iWidth;
 	int m_iHeight;
 	int a_iSheetWidth;

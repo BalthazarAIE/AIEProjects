@@ -38,6 +38,21 @@ void Sprite::Update()
 	m_vPosition += m_vVelocity;
 }
 
+void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type,float speed)
+{
+	switch(type)
+	{
+	case STATIC:
+	
+	case ONCE:
+	case LOOP:
+	case PINGPONG:
+	default:
+		
+	}
+}
+
+
 Vector2& Sprite::GetPos(){return m_vPosition;}
 Vector2& Sprite::GetVel(){return m_vVelocity;}
 int& Sprite::GetWidth(){return m_iWidth;}

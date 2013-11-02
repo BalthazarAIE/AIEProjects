@@ -41,6 +41,7 @@
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <EmbedManifest>false</EmbedManifest>
+    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>obj\</IntDir>
@@ -102,10 +103,21 @@
     <None Include="resources\shaders\StaticFW_Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Bullet.cpp" />
+    <ClCompile Include="source\Entity.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\Sprite.cpp" />
+    <ClCompile Include="source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AIE.h" />
+    <ClInclude Include="include\bullet.h" />
+    <ClInclude Include="include\entity.h" />
+    <ClInclude Include="include\globals.h" />
+    <ClInclude Include="include\player.h" />
+    <ClInclude Include="include\sprite.h" />
+    <ClInclude Include="include\vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
