@@ -40,7 +40,7 @@ void Sprite::Update()
 
 void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type,float speed)
 {
-	switch(type)
+/*	switch(type)
 	{
 	case STATIC:
 	
@@ -50,18 +50,7 @@ void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type,float 
 	case PINGPONG:
 	default:
 		
-	}
+	}*/
 }
 
 
-Vector2& Sprite::GetPos(){return m_vPosition;}
-Vector2& Sprite::GetVel(){return m_vVelocity;}
-int& Sprite::GetWidth(){return m_iWidth;}
-int& Sprite::GetHeight(){return m_iHeight;}
-int& Sprite::GetSpriteID(){return m_iSpriteID;}
-
-void Sprite::SetPos(Vector2 a_vPos){m_vPosition = a_vPos;}
-void Sprite::SetVel(Vector2 a_vVel){m_vVelocity = a_vVel;}
-void Sprite::SetWidth(int a_iWidth){m_iWidth = a_iWidth;}
-void Sprite::SetHeight(int a_iHeight){m_iHeight = a_iHeight;}
-void Sprite::SetSpriteID(int a_iSpriteID){m_iSpriteID = a_iSpriteID;}

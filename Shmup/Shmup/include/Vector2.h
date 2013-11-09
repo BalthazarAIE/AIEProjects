@@ -11,12 +11,11 @@ public:
 	Vector2(Vector2 &a_rV);
 	~Vector2(void);
 
-	float& GetX();
-	float& GetY();
+	inline float& GetX(){return m_fX;}
+inline float& GetY(){return m_fY;}
 
-	void SetX(float a_fX);
-	void SetY(float a_fY);
-
+inline void SetX(float a_fX){m_fX = a_fX;}
+inline void SetY(float a_fY){m_fY = a_fY;}
 
 	Vector2 operator + (Vector2 &a_rV);
 	Vector2 operator + (float a_fS);
@@ -39,7 +38,7 @@ public:
 	Vector2 Norm();
 	void Normalize();
 
-	void Zero();
+	static Vector2& Zero();
 	float SqrDis(Vector2 &a_rOther);
 	
 

@@ -15,18 +15,17 @@ public:
 	void Draw();
 	void Update();
 	
-	Vector2& GetPos();
-	Vector2& GetVel();
-	int& GetWidth();
-	int& GetHeight();
-	int& GetSpriteID();
+inline Vector2& GetPos(){return m_vPosition;}
+inline Vector2& GetVel(){return m_vVelocity;}
+inline int& GetWidth(){return m_iWidth;}
+inline int& GetHeight(){return m_iHeight;}
+inline int& GetSpriteID(){return m_iSpriteID;}
 
-	void SetPos(Vector2 a_vPos);
-	void SetVel(Vector2 a_vVel);
-	
-	void SetWidth(int a_iWidth);
-	void SetHeight(int a_iHeight);
-	void SetSpriteID(int a_iSpriteID);
+inline void SetPos(Vector2 a_vPos){m_vPosition = a_vPos;}
+inline void SetVel(Vector2 a_vVel){m_vVelocity = a_vVel;}
+inline void SetWidth(int a_iWidth){m_iWidth = a_iWidth;}
+inline void SetHeight(int a_iHeight){m_iHeight = a_iHeight;}
+inline void SetSpriteID(int a_iSpriteID){m_iSpriteID = a_iSpriteID;}
 
 	void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type);
 	

@@ -20,12 +20,6 @@ Vector2::~Vector2(void)
 {
 }
 
-float& Vector2::GetX(){return m_fX;}
-float& Vector2::GetY(){return m_fY;}
-
-void Vector2::SetX(float a_fX){m_fX = a_fX;}
-void Vector2::SetY(float a_fY){m_fY = a_fY;}
-
 
 Vector2 Vector2::operator + (Vector2 &a_rV)
 {
@@ -130,8 +124,8 @@ float Vector2::SqrDis(Vector2 &a_rOther)
 		return  (a_rOther.GetX() - GetX()) * (a_rOther.GetX() - GetX()) 
 			+ (a_rOther.GetY() - GetY()) * (a_rOther.GetY() - GetY());
 	}
-void Vector2::Zero()
+Vector2& Vector2::Zero()
 {
-	m_fX = m_fY =0;
+	return Vector2(0,0);
 }
 

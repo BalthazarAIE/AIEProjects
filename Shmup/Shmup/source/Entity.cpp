@@ -7,6 +7,7 @@
 Entity::Entity(void)
 {
 	Sprite();
+	GetCollider() = CircleCollider();
 	m_bisAlive= false;
 	m_xExperiance = 10;
 }
@@ -49,18 +50,19 @@ Entity::~Entity(void)
 
 void Entity::Update()
 {
+
 	if(m_bisAlive)
 	{
-	Sprite::Draw();
-	Sprite::Update();
-
+		Sprite::Draw();
+		Sprite::Update();
+		GetCollider().SetCenter(GetPos());
 	}
 }
 
-void Entity::SetXp(xp exp)
-{
-	m_xExperiance = exp;
-}
+
+
+
+//figure this out maybe ApplyDamage could return XP?
 xp Entity::Kill()
 {
 	m_bisAlive = false;
@@ -70,7 +72,7 @@ xp Entity::Kill()
 }
 void Entity::Respawn()
 {
-m_bisAlive = true;
+	m_bisAlive = true;
 }
 void Entity::Respawn(Vector2 a_vPos,Vector2 a_vVel)
 {
@@ -78,10 +80,6 @@ void Entity::Respawn(Vector2 a_vPos,Vector2 a_vVel)
 	SetPos(a_vPos);
 	SetVel(a_vVel);
 
-}
-bool Entity::isAlive()
-{
-	return m_bisAlive;
 }
 void Entity::ApplyDamage(float a_fDam)
 {
@@ -91,62 +89,8 @@ void Entity::ApplyDamage(float a_fDam)
 		Kill();
 	}
 }
-bool Entity::CollisionCheck(Entity *other)
-{
-	
-	if ((GetRadius()+ other->GetRadius())*(GetRadius()+ other->GetRadius()) >=  GetPos().SqrDis(other->GetPos()))
-		return true;
-return false;
-
-}
-bool Entity::CollisionCheck(Vector2 &point1,Vector2 &point2)
-{
-	if(point1.GetX() == point2.GetX())
-	{
-		if(point1.GetX() >= 0)
-		{
-			if((GetPos().GetX()-(GetWidth()/2) )< 0)
-			{
-				return true;
-			}
-			
-
-		}
-		if(point1.GetX() == SCREEN_WIDTH)
-		{
-			if((GetPos().GetX()+(GetWidth()/2) )> SCREEN_WIDTH)
-			{
-				return true;
-			}
-		
-		}
-	}
-
-	else if(point1.GetY() == point2.GetY())
-	{
-		if(point1.GetY() >= 0)
-		{
-			if((GetPos().GetY()-(GetHeight()/2) )< 0)
-			{
-				return true;
-			}
-			
-
-		}
-		if(point1.GetY() == SCREEN_HEIGHT)
-		{
-			if((GetPos().GetY()+(GetHeight()/2) )> SCREEN_HEIGHT)
-			{
-				return true;
-			}
-		
-		}
-	
-	}
-	return false;
 
 
-}
 
 
 

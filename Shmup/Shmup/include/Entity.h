@@ -4,9 +4,8 @@
 #include "AIE.h"
 #include "Sprite.h"
 #include "Globals.h"
+#include "CircleCollider.h"
 
-
-typedef float xp;
 
 class Entity:
 	public Sprite
@@ -25,18 +24,16 @@ public:
 	xp Kill();
 	void Respawn();
 	void Respawn(Vector2 a_vPos,Vector2 a_vVel);
-	bool isAlive();
 	void ApplyDamage(float a_fDam);
-	bool CollisionCheck(Entity *other);
-	bool CollisionCheck(Vector2&,Vector2&);
-	float GetRadius();
-	void SetRadius(float a_fRadius);
-	void SetXp(xp );
+
+	inline bool isAlive(){return m_bisAlive;}
+	inline void SetXp(xp exp){m_xExperiance = exp;}
+	inline CircleCollider& GetCollider(){return m_oCollider;}
 	
 private:
 	float m_fHealth;
 	bool m_bisAlive;
 	xp m_xExperiance;
-	float m_fCollisionRadius;
+	CircleCollider m_oCollider;
 };
 #endif
