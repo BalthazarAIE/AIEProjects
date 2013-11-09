@@ -147,7 +147,6 @@ bool Entity::CollisionCheck(Vector2 &point1,Vector2 &point2)
 
 
 }
-float Entity::GetRadius(){return m_fCollisionRadius;}
-void Entity::SetRadius(float a_fRadius){m_fCollisionRadius = a_fRadius;}
+
 
 

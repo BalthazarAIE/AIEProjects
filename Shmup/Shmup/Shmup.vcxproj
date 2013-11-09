@@ -103,6 +103,7 @@
     <None Include="resources\shaders\StaticFW_Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\CircleCollider.cpp" />
     <ClCompile Include="source\Bullet.cpp" />
     <ClCompile Include="source\Entity.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CircleCollider.h" />
     <ClInclude Include="include\AIE.h" />
     <ClInclude Include="include\bullet.h" />
     <ClInclude Include="include\entity.h" />

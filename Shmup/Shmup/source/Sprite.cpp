@@ -44,6 +44,7 @@ void PlayAnimation(unsigned int * list,unsigned int frames, PlayType type,float 
 	{
 	case STATIC:
 	
+
 	case ONCE:
 	case LOOP:
 	case PINGPONG:

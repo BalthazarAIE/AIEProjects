@@ -5,7 +5,7 @@ Player::Player(void)
 {
 	Respawn();
 	SetRadius(10);
-	m_lBullets = std::list<Bullet>(4,Bullet());
+	m_lBullets = std::list<Bullet *>(4,new Bullet());
 }
 
 

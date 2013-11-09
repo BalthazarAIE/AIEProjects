@@ -17,7 +17,7 @@ public:
 	void AddXp(xp amount); 
 private:
 	xp m_xTotalXp;
-	std::list<Bullet> m_lBullets;
+	std::list<Bullet*> m_lBullets;
 
 };
 
