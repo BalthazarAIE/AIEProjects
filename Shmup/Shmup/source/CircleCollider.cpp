@@ -29,7 +29,7 @@ bool CircleCollider::CollisionCheck(CircleCollider& a_oOtherCircle)
 		return true;
 	return false;
 }
-bool CircleCollider::CollisionCheck(Vector2 a_vPoint)
+bool CircleCollider::CollisionCheck(Vector2& a_vPoint)
 {
 	float lhs = (m_fRadius * m_fRadius);
 	float rhsX = (a_vPoint.GetX() - m_vCenter.GetX());
@@ -40,7 +40,22 @@ bool CircleCollider::CollisionCheck(Vector2 a_vPoint)
 	return false;
 
 }	
-bool CircleCollider::CollisionCheck(Line2 a_lLine)
+bool CircleCollider::CollisionCheck(Vector2& a_vPointOne,Vector2& a_vPointTwo)
+{	
+	Vector2 NormOne(a_vPointOne.GetX() - m_vCenter.GetX(),a_vPointOne.GetY() - m_vCenter.GetY());
+	Vector2 NormTwo(a_vPointTwo.GetX() - m_vCenter.GetX(),a_vPointTwo.GetY() - m_vCenter.GetY());
+
+	float lengthX = NormTwo.GetX() - NormOne.GetX();
+	float lengthY = NormTwo.GetY() - NormOne.GetY();
+	float lengthCenterX = NormOne.GetX();
+	float lengthCenterY = NormOne.GetY();
+
+
+	float dotProduct  = Dot()
+
+}
+bool CircleCollider::CollisionCheck(Line2& a_lLine)
 {
 
+	return CollisionCheck(a_lLine.PointOne,a_lLine.PointTwo);
 }

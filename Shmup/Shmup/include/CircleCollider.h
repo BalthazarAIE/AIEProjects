@@ -16,8 +16,9 @@ public:
 	inline void SetCenter(Vector2 &a_vCenter){m_vCenter = a_vCenter;}
 
 	bool CollisionCheck(CircleCollider& a_oOtherCircle);
-		bool CollisionCheck(Line2 a_lLine);
-	bool CollisionCheck(Vector2 a_vPoint);
+	bool CollisionCheck(Line2& a_lLine);
+	bool CollisionCheck(Vector2& a_vPoint);
+	bool CollisionCheck(Vector2& a_vPointOne,Vector2& a_vPointTwo);
 
 private:
 	float m_fRadius;

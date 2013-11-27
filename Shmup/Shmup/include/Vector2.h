@@ -32,6 +32,7 @@ inline void SetY(float a_fY){m_fY = a_fY;}
 	Vector2& operator *= (float a_fS);
 
 	float Dot(Vector2 &a_rV);
+	float Dot(float& a_fX,float& a_fY);
 	float Magnatude();
 	float SqMagnatude();
 

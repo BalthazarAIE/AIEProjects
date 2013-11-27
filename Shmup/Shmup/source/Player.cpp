@@ -6,7 +6,7 @@ Player::Player(void)
 {
 	Respawn();
 	GetCollider().SetRadius(10);
-	m_lBullets = std::list<Bullet *>(4,new Bullet());
+	m_lBullets = std::vector<Bullet *>(4,new Bullet());
 }
 
 
@@ -45,7 +45,7 @@ void Player::Input()
 void Player::Update()
 {
 	Input();
-	if(CollisionCheck(Vector2(0,SCREEN_HEIGHT),Vector2(0,0)))
+	if(m_oCollider.CollisionCheck(Vector2(0,SCREEN_HEIGHT),Vector2(0,0)))
 	{
 		GetVel().SetX(0);
 		SetPos(GetPos()+Vector2(1,0));

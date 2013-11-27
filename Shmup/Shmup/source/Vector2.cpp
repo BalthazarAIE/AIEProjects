@@ -93,7 +93,11 @@ Vector2& Vector2::operator *= (float a_fS)
 
 float Vector2::Dot(Vector2 &a_rV)
 {
-	return (m_fX * a_rV.m_fX)+(m_fY * a_rV.m_fY);
+	return Dot(a_rV.GetX(),a_rV.GetY());
+}
+float Vector2::Dot(float& a_fX,float& a_fY)
+{
+	return(m_fX* a_fX)+(m_fY* a_fY);
 }
 float Vector2::Magnatude()
 {

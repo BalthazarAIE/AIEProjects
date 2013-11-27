@@ -28,12 +28,12 @@ public:
 
 	inline bool isAlive(){return m_bisAlive;}
 	inline void SetXp(xp exp){m_xExperiance = exp;}
-	inline CircleCollider& GetCollider(){return m_oCollider;}
-	
+
+	CircleCollider m_oCollider;
 private:
 	float m_fHealth;
 	bool m_bisAlive;
 	xp m_xExperiance;
-	CircleCollider m_oCollider;
+	
 };
 #endif
