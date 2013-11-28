@@ -5,7 +5,7 @@
 Player::Player(void)
 {
 	Respawn();
-	GetCollider().SetRadius(10);
+	GetCollider().SetRadius(50);
 	m_lBullets = std::vector<Bullet *>(4,new Bullet());
 }
 
@@ -45,22 +45,22 @@ void Player::Input()
 void Player::Update()
 {
 	Input();
-	if(m_oCollider.CollisionCheck(Vector2(0,SCREEN_HEIGHT),Vector2(0,0)))
+	if(m_oCollider.CollisionCheck(Vector2(0,0),Vector2(0,SCREEN_HEIGHT)))
 	{
 		GetVel().SetX(0);
 		SetPos(GetPos()+Vector2(1,0));
 	}
-	if(CollisionCheck(Vector2(SCREEN_WIDTH,SCREEN_HEIGHT),Vector2(SCREEN_WIDTH,0)))
+	if(GetCollider().CollisionCheck(Vector2(SCREEN_WIDTH,0),Vector2(SCREEN_WIDTH,SCREEN_HEIGHT)))
 	{
 		GetVel().SetX(0);
 		SetPos(GetPos()+Vector2(-.5,0));
 	}
-	if(CollisionCheck(Vector2(SCREEN_WIDTH,0),Vector2(0,0)))
+	if(GetCollider().CollisionCheck(Vector2(0,0),Vector2(SCREEN_WIDTH,0)))
 {
 		GetVel().SetY(0);
 		SetPos(GetPos()+Vector2(0,1));
 	}
-	if(CollisionCheck(Vector2(SCREEN_WIDTH,SCREEN_HEIGHT),Vector2(0,SCREEN_HEIGHT)))
+	if(GetCollider().CollisionCheck(Vector2(0,SCREEN_HEIGHT),Vector2(SCREEN_WIDTH,SCREEN_HEIGHT)))
 	{
 		GetVel().SetY(0);
 		SetPos(GetPos()+Vector2(0,-.5));

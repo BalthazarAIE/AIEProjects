@@ -42,16 +42,17 @@ bool CircleCollider::CollisionCheck(Vector2& a_vPoint)
 }	
 bool CircleCollider::CollisionCheck(Vector2& a_vPointOne,Vector2& a_vPointTwo)
 {	
-	Vector2 NormOne(a_vPointOne.GetX() - m_vCenter.GetX(),a_vPointOne.GetY() - m_vCenter.GetY());
-	Vector2 NormTwo(a_vPointTwo.GetX() - m_vCenter.GetX(),a_vPointTwo.GetY() - m_vCenter.GetY());
-
-	float lengthX = NormTwo.GetX() - NormOne.GetX();
-	float lengthY = NormTwo.GetY() - NormOne.GetY();
-	float lengthCenterX = NormOne.GetX();
-	float lengthCenterY = NormOne.GetY();
+	Vector2 newCenter(m_vCenter.GetX() - a_vPointOne.GetX() ,m_vCenter.GetY() - a_vPointOne.GetY() );
+	Vector2 newPointTwo(a_vPointTwo.GetX() - a_vPointOne.GetX() ,a_vPointTwo.GetY() - a_vPointOne.GetY() );
 
 
-	float dotProduct  = Dot()
+	float projection  = newCenter.Norm().Dot(newPointTwo.Norm());
+	float sinofAngle = sqrt(1 - (projection * projection)); 
+	float lhs, rhs;
+	lhs = m_fRadius *m_fRadius; 
+	rhs = newCenter.SqMagnatude() * sinofAngle;
+	return lhs >= rhs;
+
 
 }
 bool CircleCollider::CollisionCheck(Line2& a_lLine)

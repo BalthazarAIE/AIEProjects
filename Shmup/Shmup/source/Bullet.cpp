@@ -4,7 +4,7 @@
 Bullet::Bullet(void)
 {
 	Respawn(Vector2(-10,-10),Vector2(0,0));
-	SetRadius(2);
+	GetCollider().SetRadius(2);
 	SetXp(0);
 }
 Bullet::Bullet(const Bullet &bill)
