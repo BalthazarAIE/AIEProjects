@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5B70FF18-670F-4D9D-8B42-514FD4778AA3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GraphicsAssessmentGregPower</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>./bin\</OutDir>
+    <IntDir>./obj\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\FBXLoader;$(ProjectDir)..\include;$(ProjectDir)..\..\include;$(ProjectDir)..\..\libs\glfw\include;$(ProjectDir)..\..\libs\glew\include;$(ProjectDir)..\..\libs\FreeImage\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\FBXLoader\bin;$(ProjectDir)..\..\libs\FreeImage\lib;$(ProjectDir)..\..\libs\glfw\lib-msvc100;$(ProjectDir)..\..\libs\glew\lib;$(ProjectDir)..\..\libs\FreeImage\bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FBXLoader_d.lib;FreeImaged.lib;opengl32.lib;glew32s.lib;GLFW.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\FBXLoader;$(ProjectDir)..\include;$(ProjectDir)..\..\include;$(ProjectDir)..\..\libs\glfw\include;$(ProjectDir)..\..\libs\glew\include;$(ProjectDir)..\..\libs\FreeImage\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FBXLoader.lib;FreeImage.lib;opengl32.lib;glew32s.lib;GLFW.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\FBXLoader\bin;$(ProjectDir)..\..\libs\FreeImage\lib;$(ProjectDir)..\..\libs\glfw\lib-msvc100;$(ProjectDir)..\..\libs\glew\lib;$(ProjectDir)..\..\libs\FreeImage\bin</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\tinystr.cpp" />
+    <ClCompile Include="..\..\source\tinyxml.cpp" />
+    <ClCompile Include="..\..\source\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\source\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\source\Utilities.cpp" />
+    <ClCompile Include="..\..\source\Visualiser.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\CApplication.cpp" />
+    <ClCompile Include="source\CGameStateManager.cpp" />
+    <ClCompile Include="source\CInputHandler.cpp" />
+    <ClCompile Include="source\CubeNode.cpp" />
+    <ClCompile Include="source\GSLab01.cpp" />
+    <ClCompile Include="source\GSLab02.cpp" />
+    <ClCompile Include="source\GSLab03.cpp" />
+    <ClCompile Include="source\GSLab04.cpp" />
+    <ClCompile Include="source\GSLab05.cpp" />
+    <ClCompile Include="source\GSLab09.cpp" />
+    <ClCompile Include="source\GSLab07.cpp" />
+    <ClCompile Include="source\GSLab08.cpp" />
+    <ClCompile Include="source\IcosphereNode.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\MeshNode.cpp" />
+    <ClCompile Include="source\ParticleManager.cpp" />
+    <ClCompile Include="source\ParticleSystem.cpp" />
+    <ClCompile Include="source\PlaneNode.cpp" />
+    <ClCompile Include="source\QuadMesh.cpp" />
+    <ClCompile Include="source\CRenderManager.cpp" />
+    <ClCompile Include="source\SceneNode.cpp" />
+    <ClCompile Include="source\Skybox.cpp" />
+    <ClCompile Include="source\TerrianNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\MathHelper.h" />
+    <ClInclude Include="..\..\include\PerlinNoise2D.h" />
+    <ClInclude Include="..\..\include\tinystr.h" />
+    <ClInclude Include="..\..\include\tinyxml.h" />
+    <ClInclude Include="..\..\include\Utilities.h" />
+    <ClInclude Include="..\..\include\Visualiser.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\CApplication.h" />
+    <ClInclude Include="include\CGameStateManager.h" />
+    <ClInclude Include="include\CInputHandler.h" />
+    <ClInclude Include="include\CubeNode.h" />
+    <ClInclude Include="include\FBXMeshNode.h" />
+    <ClInclude Include="include\GSLab02.h" />
+    <ClInclude Include="include\GSLab03.h" />
+    <ClInclude Include="include\GSLab04.h" />
+    <ClInclude Include="include\GSLab05.h" />
+    <ClInclude Include="include\GSLab09.h" />
+    <ClInclude Include="include\GSLab07.h" />
+    <ClInclude Include="include\GSLab08.h" />
+    <ClInclude Include="include\IBaseGameState.h" />
+    <ClInclude Include="include\IcosphereNode.h" />
+    <ClInclude Include="include\MeshNode.h" />
+    <ClInclude Include="include\Particle.h" />
+    <ClInclude Include="include\ParticleManager.h" />
+    <ClInclude Include="include\ParticleSystem.h" />
+    <ClInclude Include="include\PlaneNode.h" />
+    <ClInclude Include="include\QuadMesh.h" />
+    <ClInclude Include="include\Quaternion.h" />
+    <ClInclude Include="include\CRenderManager.h" />
+    <ClInclude Include="include\SceneNode.h" />
+    <ClInclude Include="include\Skybox.h" />
+    <ClInclude Include="include\TerrainNode.h" />
+    <ClInclude Include="source\GSLab01.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\resources\scripts\particle_settings.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\resources\shaders\basic_fragment.glsl" />
+    <None Include="..\..\resources\shaders\basic_geometry.glsl" />
+    <None Include="..\..\resources\shaders\basic_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\basic_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\basic_vertex.glsl" />
+    <None Include="..\..\resources\shaders\fullscreen_quad_fragment.glsl" />
+    <None Include="..\..\resources\shaders\fullscreen_quad_vertex.glsl" />
+    <None Include="..\..\resources\shaders\gaussian_fragment.glsl" />
+    <None Include="..\..\resources\shaders\gaussian_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab01_water_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab01_water_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab01_water_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab01_water_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab01_water_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab02_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab02_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab02_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab02_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab02_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab03_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab03_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab03_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab03_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab03_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab04_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab04_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab04_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab04_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab04_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab05_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab05_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab05_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab05_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab05_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab09_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab09_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab07_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab07_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab07_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab07_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab07_vertex.glsl" />
+    <None Include="..\..\resources\shaders\lab08_fragment.glsl" />
+    <None Include="..\..\resources\shaders\lab08_geometry.glsl" />
+    <None Include="..\..\resources\shaders\lab08_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\lab08_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\lab08_vertex.glsl" />
+    <None Include="..\..\resources\shaders\normalmap_pixel.glsl" />
+    <None Include="..\..\resources\shaders\normalmap_vertex.glsl" />
+    <None Include="..\..\resources\shaders\particle_2d_geometry.glsl" />
+    <None Include="..\..\resources\shaders\particle_2d_fragment.glsl" />
+    <None Include="..\..\resources\shaders\particle_2d_vertex.glsl" />
+    <None Include="..\..\resources\shaders\particle_3d_fragment.glsl" />
+    <None Include="..\..\resources\shaders\particle_3d_geometry.glsl" />
+    <None Include="..\..\resources\shaders\particle_3d_vertex.glsl" />
+    <None Include="..\..\resources\shaders\refraction_fragment.glsl" />
+    <None Include="..\..\resources\shaders\refraction_geometry.glsl" />
+    <None Include="..\..\resources\shaders\refraction_tess_control.glsl" />
+    <None Include="..\..\resources\shaders\refraction_tess_eval.glsl" />
+    <None Include="..\..\resources\shaders\refraction_vertex.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

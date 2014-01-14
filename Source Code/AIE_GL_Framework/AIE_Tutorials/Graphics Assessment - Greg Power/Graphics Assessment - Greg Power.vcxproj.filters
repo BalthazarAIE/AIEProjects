@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GameStates">
+      <UniqueIdentifier>{adac3993-7bfa-4594-8168-4a9a0bc0be0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{39f830b9-29b4-466d-a428-2bda48491c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Nodes">
+      <UniqueIdentifier>{f796fa34-f4cb-462b-898c-e2117462fa5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Nodes">
+      <UniqueIdentifier>{c83859a6-0b10-4b20-b8dd-b535615ea257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ParticleSystem">
+      <UniqueIdentifier>{14f2fc27-c060-4dec-b16e-736897ee126e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleSystem">
+      <UniqueIdentifier>{41429e95-e289-4936-b374-fa96dfc95f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{e4178203-01ef-44f2-8f98-989ba7fb8e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{8022cb00-e304-49a8-82b3-8d2d2cd117b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab01">
+      <UniqueIdentifier>{9453df52-7428-4b1f-b721-fec60aad1199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab02">
+      <UniqueIdentifier>{fcdf786e-d5a0-4755-a7b5-7a15557f1b27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab04">
+      <UniqueIdentifier>{65910792-63e0-4fcd-a97a-e3ea0d220838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab03">
+      <UniqueIdentifier>{ebfd927a-6254-424d-95b1-bf1b87845b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab05">
+      <UniqueIdentifier>{5387ee5e-f83f-4f03-a2c0-66944056147c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab07">
+      <UniqueIdentifier>{29a6abb8-2ae0-4355-b925-a1fe41cdbca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab08">
+      <UniqueIdentifier>{9b722ea2-d5de-4d8c-ac3c-b49e253a36c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\ParticleShaders">
+      <UniqueIdentifier>{b5ac3877-0a3a-4562-8ee2-8068da3148c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\ParticleShaders\2DParticles">
+      <UniqueIdentifier>{1f3d8b4d-f1b7-44eb-9302-29e0b553d2ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\ParticleShaders\3DParticles">
+      <UniqueIdentifier>{d9616d2f-1227-40a4-a7fd-d0bb2e649f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\RefractionShaders">
+      <UniqueIdentifier>{6db129e4-126d-4d73-acad-82cf2d9f091d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\FullscreenQuadShaders">
+      <UniqueIdentifier>{08ab7e07-0f0e-467c-afb2-6f8e3ea4564e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\GaussianBlurShaders">
+      <UniqueIdentifier>{493381b3-e9a0-4927-b0d5-1e7e8100d46f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lab09">
+      <UniqueIdentifier>{ae2e3441-f5d2-4a01-8920-e1e7e6d6f4da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\LightingShaders">
+      <UniqueIdentifier>{7b0b21c8-3977-4357-b6ba-83abd915d858}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuadMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CGameStateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CInputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab01.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MeshNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SceneNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CubeNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlaneNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ParticleManager.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ParticleSystem.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\tinystr.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\tinyxml.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\tinyxmlerror.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\tinyxmlparser.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Utilities.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Visualiser.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CRenderManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab02.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab03.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab04.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Skybox.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab05.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab07.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab08.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\TerrianNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\IcosphereNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GSLab09.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QuadMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CGameStateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CInputHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IBaseGameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GSLab01.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PlaneNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SceneNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MeshNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CubeNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Particle.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ParticleSystem.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ParticleManager.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\tinystr.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\tinyxml.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CRenderManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab02.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab03.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab04.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Skybox.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab05.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab07.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab08.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\MathHelper.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Utilities.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Visualiser.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FBXMeshNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TerrainNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\PerlinNoise2D.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IcosphereNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GSLab09.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\resources\shaders\lab01_water_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab01</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab01_water_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab01</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab01_water_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab01</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab01_water_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab01</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab01_water_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab01</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\basic_vertex.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\basic_tess_control.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\basic_tess_eval.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\basic_geometry.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\basic_fragment.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab02_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab02</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab02_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab02</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab02_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab02</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab02_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab02</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab02_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab02</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab04_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab04</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab04_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab04</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab04_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab04</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab04_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab04</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab04_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab04</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab03_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab03</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab03_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab03</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab03_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab03</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab03_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab03</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab03_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab03</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab05_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab05</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab05_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab05</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab05_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab05</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab05_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab05</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab05_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab05</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab07_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab07</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab07_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab07</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab07_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab07</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab07_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab07</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab07_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab07</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab08_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab08</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab08_tess_control.glsl">
+      <Filter>Resource Files\Shaders\Lab08</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab08_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\Lab08</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab08_geometry.glsl">
+      <Filter>Resource Files\Shaders\Lab08</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab08_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab08</Filter>
+    </None>
+    <None Include="..\..\resources\scripts\particle_settings.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_3d_vertex.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\3DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_3d_geometry.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\3DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_3d_fragment.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\3DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_2d_geometry.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\2DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_2d_fragment.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\2DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\particle_2d_vertex.glsl">
+      <Filter>Resource Files\Shaders\ParticleShaders\2DParticles</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\refraction_vertex.glsl">
+      <Filter>Resource Files\Shaders\RefractionShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\refraction_fragment.glsl">
+      <Filter>Resource Files\Shaders\RefractionShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\fullscreen_quad_vertex.glsl">
+      <Filter>Resource Files\Shaders\FullscreenQuadShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\fullscreen_quad_fragment.glsl">
+      <Filter>Resource Files\Shaders\FullscreenQuadShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\refraction_tess_eval.glsl">
+      <Filter>Resource Files\Shaders\RefractionShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\refraction_geometry.glsl">
+      <Filter>Resource Files\Shaders\RefractionShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\refraction_tess_control.glsl">
+      <Filter>Resource Files\Shaders\RefractionShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\gaussian_fragment.glsl">
+      <Filter>Resource Files\Shaders\GaussianBlurShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\gaussian_vertex.glsl">
+      <Filter>Resource Files\Shaders\GaussianBlurShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\normalmap_pixel.glsl">
+      <Filter>Resource Files\Shaders\LightingShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\normalmap_vertex.glsl">
+      <Filter>Resource Files\Shaders\LightingShaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab09_fragment.glsl">
+      <Filter>Resource Files\Shaders\Lab09</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\lab09_vertex.glsl">
+      <Filter>Resource Files\Shaders\Lab09</Filter>
+    </None>
+  </ItemGroup>
+</Project>
