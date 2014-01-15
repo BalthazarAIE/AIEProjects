@@ -1,30 +1,24 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <string>
+#include <istream>
+#include <fstream>
+
+
+std::string textFileReader(const char* a_szFileName) {
  
-char *textFileReader(const char* a_szFileName) {
+    std::string FileContents;
+	std::ifstream FileStream;
  
-    FILE *pFilePointer;
-    char *content = NULL;
- 
-    int count=0;
- 
-    if (a_szFileName != NULL) {
-        pFilePointer = fopen(a_szFileName,"r");
- 
-        if (pFilePointer != NULL) {
- 
-      fseek(pFilePointer, 0, SEEK_END);
-      count = ftell(pFilePointer);
-      rewind(pFilePointer);
- 
-            if (count > 0) {
-                content = (char *)malloc(sizeof(char) * (count+1));
-                count = fread(content,sizeof(char),count,pFilePointer);
-                content[count] = '\0';
-            }
-            fclose(pFilePointer);
-        }
+	FileStream.open(a_szFileName, std::ios::in);
+	if (FileStream.is_open()) {
+        std::string Line = "";
+			while(getline(FileStream,Line))
+				FileContents += "\n" + Line;
+			FileStream.close();
     }
-    return content;
+	else
+	{
+		printf("Error: Failed to open file '%s'!\n",a_szFileName);
+	}
+
+	return FileContents;
 }
