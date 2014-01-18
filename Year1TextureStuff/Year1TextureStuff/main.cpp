@@ -15,14 +15,18 @@ static int GLFWCALL windowCloseListener()
 { 
 	g_bWindowClosed = true; 
 	return 0; 
-} 
+} 
+
 
 struct V_4f_4f 
 { 
 	GLfloat fVertices[4]; 
 	GLfloat fUV[2];
 
-}; void printProgramInfoLog(GLuint obj);
+}; 
+
+void printProgramInfoLog(GLuint obj);
+
 GLuint LoadTexture(const char* a_szTexture, unsigned int a_uiFormat , unsigned int* a_uiWidth , unsigned int* a_uiHeight, unsigned int* a_uiBPP  );
 void printShaderInfoLog(GLuint obj);
 int main(int argc, char *argv[])
@@ -89,25 +93,32 @@ int main(int argc, char *argv[])
 		pObject[0].fVertices[2] = 1;
 		pObject[0].fVertices[3] = 1;
 		pObject[0].fUV[0] = 0 ;
-		pObject[0].fUV[1] = 0;		
+		pObject[0].fUV[1] = 0;
+
+		
 		pObject[1].fVertices[0] = 1; 
 		pObject[1].fVertices[1] = 0;
 		pObject[1].fVertices[2] = 1;
 		pObject[1].fVertices[3] = 1;
 		pObject[1].fUV[0] = 1;
-		pObject[1].fUV[1] = 0;		
+		pObject[1].fUV[1] = 0;
+
+		
 		pObject[2].fVertices[0] = 0; 
 		pObject[2].fVertices[1] = 1;
 		pObject[1].fVertices[2] = 1;
 		pObject[1].fVertices[3] = 1;
 		pObject[2].fUV[0] = 0;
-		pObject[2].fUV[1] = 1;		
+		pObject[2].fUV[1] = 1;
+
+		
 		pObject[3].fVertices[0] = 1; 
 		pObject[3].fVertices[1] = 1;
 		pObject[1].fVertices[2] = 1;
 		pObject[1].fVertices[3] = 1; 
 		pObject[3].fUV[0] = 1;
-		pObject[3].fUV[1] = 1;
+		pObject[3].fUV[1] = 1;
+
 	//\================================================================================== 
 	//\Request a vertex buffer object from OpenGL 
 	//\================================================================================== 
@@ -124,7 +135,8 @@ int main(int argc, char *argv[])
 		memcpy(vBuffer, pObject, sizeof(V_4f_4f) * 4); 
 		glUnmapBuffer(GL_ARRAY_BUFFER); 
 		glBindBuffer(GL_ARRAY_BUFFER, 0); 
-	} 
+	} 
+
 
 	GLuint v, f, p;
 	 std::string vString, fString;
@@ -198,7 +210,8 @@ int main(int argc, char *argv[])
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4); 
  
 		glDisableClientState(GL_VERTEX_ARRAY); 
-		glBindBuffer(GL_ARRAY_BUFFER, 0); 
+		glBindBuffer(GL_ARRAY_BUFFER, 0); 
+
 
 		/* Swap front and back buffers and process events */ 
 		glfwSwapBuffers(); 
