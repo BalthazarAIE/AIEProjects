@@ -1,9 +1,9 @@
 #include <GL\glew.h>
-#include <GL\wglew.h>
+
 
 #define GLFW_DLL
 #include <GL\glfw3.h>
-#include <glm.hpp>
+#include <FreeImage.h>
 #include "math_funcs.h"
 
 #include <stdio.h>
@@ -18,6 +18,10 @@ void log_gl_params ();
 int g_gl_width = 640;
 int g_gl_height = 480;
 
+
+GLuint LoadTexture(const char* a_szTexture, unsigned int a_uiFormat , unsigned int* a_uiWidth , unsigned int* a_uiHeight, unsigned int* a_uiBPP  );
+void printShaderInfoLog(GLuint obj);
+
 // a call-back function
 void glfw_window_size_callback (GLFWwindow* window, int width, int height) {
 	g_gl_width = width;
@@ -25,6 +29,13 @@ void glfw_window_size_callback (GLFWwindow* window, int width, int height) {
 
 	/* update any perspective matrices used here */
 }
+
+struct Vertex
+{
+	GLfloat fVertices[4];
+	GLfloat fColor[4];
+	GLfloat fUV[2];
+};
 
 //call back before initalization of GLFW
 void glfw_error_callback (int error, const char* description) {
@@ -93,20 +104,33 @@ int main()
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"
 
 	/* OTHER STUFF GOES HERE NEXT */
+
+
+	Vertex Quad[4];
+
 	float points[] = 
 	{
-		0.0f,0.5f,0.0f,
-		0.5f,-0.5f,0.0f,
-		-0.5f,-0.5f,0.0f,
+		 0.0f, 1.0f, 1.0f,
+		 0.0f, 0.0f, 1.0f,
+		 1.0f, 1.0f, 1.0f,
+		 1.0f, 0.0f, 1.0f,
 
 	};
 	float colors[] = 
 	{
-		1.0f,0.0f,0.0f,
-		0.0f,1.0f,0.0f,
-		0.0f,0.0f,1.0f
-	};
+		1.0f,1.0f,1.0f,
+		1.0f,1.0f,1.0f,
+		1.0f,1.0f,1.0f,
+		1.0f,1.0f,1.0f
 
+	};
+	float UVCoord[] = 
+	{
+		0.0,0.0,
+		1.0,0.0,
+		0.0,1.0,
+		1.0,1.0
+	};
 	//Column Major Order 
 	float matrix[] =
 	{
@@ -119,12 +143,17 @@ int main()
 	GLuint pointsVBO = 0;
 	glGenBuffers (1, &pointsVBO);
 	glBindBuffer (GL_ARRAY_BUFFER, pointsVBO);
-	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (float), points, GL_STATIC_DRAW);
+	glBufferData (GL_ARRAY_BUFFER, 12 * sizeof (float), points, GL_STATIC_DRAW);
 
 	GLuint colorsVBO = 0;
 	glGenBuffers (1, &colorsVBO);
 	glBindBuffer (GL_ARRAY_BUFFER, colorsVBO);
-	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (float), colors, GL_STATIC_DRAW);
+	glBufferData (GL_ARRAY_BUFFER, 12 * sizeof (float), colors, GL_STATIC_DRAW);
+	
+	GLuint uvVBO = 0;
+	glGenBuffers (1, &uvVBO);
+	glBindBuffer (GL_ARRAY_BUFFER, uvVBO);
+	glBufferData (GL_ARRAY_BUFFER, 8 * sizeof (float), UVCoord, GL_STATIC_DRAW);
 
 	unsigned int VAO = 0;
 	glGenVertexArrays (1, &VAO);
@@ -134,25 +163,33 @@ int main()
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte*)NULL);
 	glBindBuffer (GL_ARRAY_BUFFER, colorsVBO);
 	glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte*)NULL);
+	glBindBuffer (GL_ARRAY_BUFFER, uvVBO);
+	glVertexAttribPointer (2, 2, GL_FLOAT, GL_FALSE, 0, (GLubyte*)NULL);
 	glEnableVertexAttribArray (0);
 	glEnableVertexAttribArray (1);
+	glEnableVertexAttribArray (2);
+
 	const char* vertex_shader =
 		"layout(location = 0) in vec3 vertex_position;\n"
 		"layout(location = 1) in vec3 vertex_color;\n"
+		"layout(location = 2) in vec2 vertex_uv;\n"
 		"uniform mat4 matrix; //out matrix \n"
 		"out vec3 color;\n"
+		"out vec2 uvcoord;\n"
 		"void main () {\n"
 		"color = vertex_color;\n"
+		"uvcoord = vertex_uv;"
 		"gl_Position = matrix * vec4 (vertex_position, 1.0);\n"
 		"}";
 
 	const char* fragment_shader =
 		"#version 400\n"
 		"in vec3 color;\n"
+		"in vec2 uvcoord;\n"
 		"out vec4 frag_color;\n"
-
+		"uniform sampler2D Texure;\n"
 		"void main () {\n"
-		"  frag_color = vec4 (color, 1.0);\n"
+		"  frag_color = vec4(color,1.0);\n"
 		"}";
 
 	//Create a shader
@@ -186,6 +223,7 @@ int main()
 	float speed = 1.0f; // move at 1 unit per second
 float last_position = 0.0f;
 int matrix_location = glGetUniformLocation (shaderProgram, "matrix");
+glUniform1i(glGetUniformLocation(shaderProgram, "Texture"), 0);
 	while (!glfwWindowShouldClose (window)) {
 
 		// add a timer for doing animation
@@ -323,4 +361,73 @@ void log_gl_params () {
 	sprintf (msg, "%s %i", names[11], (unsigned int)s);
 	gl_log (msg, __FILE__, __LINE__);
 	gl_log ("-----------------------------", __FILE__, __LINE__);
+}
+GLuint LoadTexture(const char* a_szTexture, unsigned int a_uiFormat /* = 
+																	GL_RGBA */, unsigned int* a_uiWidth /* = nullptr */, unsigned int* a_uiHeight /* = 
+																	nullptr */, unsigned int* a_uiBPP  = nullptr)
+{
+	FIBITMAP* pBitmap = nullptr;
+	// check the file signature and deduce its format and load it
+	FREE_IMAGE_FORMAT fif = FreeImage_GetFileType(a_szTexture, 0);
+	if(fif != FIF_UNKNOWN && FreeImage_FIFSupportsReading(fif)) 
+	{
+		pBitmap = FreeImage_Load(fif, a_szTexture);
+	}
+	if(pBitmap == nullptr) 
+	{
+		printf("Error: Failed to load image '%s'!\n", a_szTexture);
+		return 0;
+	}
+
+	// optionally get the image width and height
+	if(a_uiWidth != nullptr)
+		*a_uiWidth = FreeImage_GetWidth(pBitmap);
+
+	if(a_uiHeight != nullptr)
+		*a_uiHeight = FreeImage_GetHeight(pBitmap);
+
+	// force the image to RGBA
+	unsigned int bpp = FreeImage_GetBPP(pBitmap);
+
+
+	if( a_uiBPP != nullptr )
+		*a_uiBPP = bpp/8;
+	FREE_IMAGE_COLOR_TYPE fi_colourType = FreeImage_GetColorType(pBitmap);
+
+	if(fi_colourType != FIC_RGBALPHA ) 
+	{
+		FIBITMAP* ndib = FreeImage_ConvertTo32Bits(pBitmap);
+		FreeImage_Unload(pBitmap);
+		pBitmap = ndib;
+		bpp = FreeImage_GetBPP(pBitmap);
+		fi_colourType = FreeImage_GetColorType(pBitmap);
+	}
+
+	// get the pixel data
+	BYTE* pData = FreeImage_GetBits(pBitmap);
+
+	// try to determine data type of file (bytes/floats)
+	FREE_IMAGE_TYPE fit = FreeImage_GetImageType(pBitmap);
+	GLenum eType = (fit == FIT_RGBF || fit == FIT_FLOAT) ? GL_FLOAT:GL_UNSIGNED_BYTE;
+
+	// create GL texture
+	GLuint textureID;
+	glGenTextures( 1, &textureID );
+	glBindTexture( GL_TEXTURE_2D, textureID );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 
+		FreeImage_GetWidth(pBitmap), 
+		FreeImage_GetHeight(pBitmap), 0, 
+		a_uiFormat, eType, pData);
+
+	// specify default filtering and wrapping
+	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+
+	// unbind texture
+	glBindTexture( GL_TEXTURE_2D, 0 );
+	// delete data
+	FreeImage_Unload(pBitmap);
+	return textureID;
 }

@@ -37,8 +37,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)/libs/glm/glm;$(ProjectDir)/libs/glfw3/include;$(ProjectDir)/libs/glew/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/libs/glfw3/lib-msvc110;$(ProjectDir)/libs/glew/lib/Release/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)/libs/glm/glm;$(ProjectDir)/libs/glfw3/include;$(ProjectDir)/libs/FreeImage/include;$(ProjectDir)/libs/glew/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)/libs/FreeImage/lib;$(ProjectDir)/libs/glfw3/lib-msvc110;$(ProjectDir)/libs/glew/lib/Release/Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -47,7 +47,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FreeImage.lib;glew32.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)\libs\glfw3\lib-msvc110\;$(ProjectDir)\libs\glew\bin\Release\Win32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -65,8 +65,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lesson1.cpp" />
-    <ClCompile Include="Lesson2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math_funcs.cpp" />
   </ItemGroup>

@@ -12,7 +12,7 @@ GLFW3, GLEW,Window creation
 
 #include <stdio.h>
 
-int main()
+int notmain1()
 {
     //open an OS window using GLFW
     if(!glfwInit())

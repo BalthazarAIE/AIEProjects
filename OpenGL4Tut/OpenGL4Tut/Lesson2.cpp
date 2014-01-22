@@ -17,12 +17,12 @@ GLFW3, GLEW,Window creation
 
 void glfw_error_callback (int error, const char* description) {
   fputs (description, stderr);
-  gl_log (description, __FILE__, __LINE__);
+//  gl_log (description, __FILE__, __LINE__);
 }
 
 
 
-int main()
+int notmain2()
 {
 	char message[256];
 sprintf (message, "starting GLFW %s", glfwGetVersionString ());

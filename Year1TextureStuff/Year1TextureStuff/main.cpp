@@ -189,7 +189,8 @@ int main(int argc, char *argv[])
 
 	GLint texAttrib = glGetAttribLocation( p, "texcoord" );
 	glEnableVertexAttribArray( texAttrib );
-	glVertexAttribPointer( texAttrib, 2, GL_FLOAT, GL_FALSE, 0, (void*)((4* sizeof(float))) );
+
+	glVertexAttribPointer( texAttrib, 2, GL_FLOAT, GL_FALSE, 6* sizeof(float), (void*)(4* sizeof(float)) );
 	
 
 	while ( glfwGetWindowParam( GLFW_OPENED ) != 0 && !g_bWindowClosed ) 
