@@ -3,6 +3,7 @@
 #define __GLLOG_H_
 #include <time.h>
 #include <fstream>
+#include <GL/glew.h>
 
 
 bool restart_gl_log () ;

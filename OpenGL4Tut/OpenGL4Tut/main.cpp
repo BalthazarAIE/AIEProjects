@@ -2,13 +2,13 @@
 
 
 #define GLFW_DLL
-#include <GL\glfw3.h>
+#include <GLFW\glfw3.h>
 #include <FreeImage.h>
-#include "math_funcs.h"
+
 
 #include <stdio.h>
-#include "GLLog.h"
-
+#include "Utilities.h"
+#include "Quad.h"
 
 void printProgramInfoLog(GLuint obj);
 void printShaderInfoLog(GLuint obj);
@@ -30,12 +30,6 @@ void glfw_window_size_callback (GLFWwindow* window, int width, int height) {
 	/* update any perspective matrices used here */
 }
 
-struct Vertex
-{
-	GLfloat fVertices[4];
-	GLfloat fColor[4];
-	GLfloat fUV[2];
-};
 
 //call back before initalization of GLFW
 void glfw_error_callback (int error, const char* description) {
@@ -222,6 +216,8 @@ int main()
 
 	float speed = 1.0f; // move at 1 unit per second
 float last_position = 0.0f;
+
+
 int matrix_location = glGetUniformLocation (shaderProgram, "matrix");
 glUniform1i(glGetUniformLocation(shaderProgram, "Texture"), 0);
 	while (!glfwWindowShouldClose (window)) {

@@ -37,8 +37,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)/libs/glm/glm;$(ProjectDir)/libs/glfw3/include;$(ProjectDir)/libs/FreeImage/include;$(ProjectDir)/libs/glew/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/libs/FreeImage/lib;$(ProjectDir)/libs/glfw3/lib-msvc110;$(ProjectDir)/libs/glew/lib/Release/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)/include;$(ProjectDir)../libs/glm/glm;$(ProjectDir)../libs/glfw3/include;$(ProjectDir)../libs/FreeImage/include;$(ProjectDir)../libs/glew/include;$(ProjectDir)../libs/TerrehByteMath/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)../libs/TerrehByteMath/lib;$(ProjectDir)../libs/FreeImage/lib;$(ProjectDir)../libs/glfw3/lib-msvc110;$(ProjectDir)../libs/glew/lib/;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(ProjectDir)/source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -66,11 +67,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="math_funcs.cpp" />
+    <ClCompile Include="Quad.cpp" />
+    <ClCompile Include="source\GLLog.cpp" />
+    <ClCompile Include="source\Sprite.cpp" />
+    <ClCompile Include="source\TextFilerReader.cpp" />
+    <ClCompile Include="source\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GLLog.h" />
-    <ClInclude Include="math_funcs.h" />
+    <ClInclude Include="include\GLLog.h" />
+    <ClInclude Include="include\Sprite.h" />
+    <ClInclude Include="include\TextFileReader.h" />
+    <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="Quad.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

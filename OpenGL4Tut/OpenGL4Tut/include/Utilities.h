@@ -5,7 +5,7 @@
 #include <FreeImage.h>
 
 //Terry's Math lib
-#include "TerrehByteMath.h"
+#include <TerrehByteMath.h>
 //other helper functions
 #include "GLLog.h"
 #include "TextFileReader.h"

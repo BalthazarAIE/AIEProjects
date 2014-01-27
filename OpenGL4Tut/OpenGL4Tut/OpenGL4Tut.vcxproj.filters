@@ -18,15 +18,36 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="math_funcs.cpp">
+    <ClCompile Include="source\GLLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\TextFilerReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GLLog.h">
+    <ClInclude Include="include\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="math_funcs.h">
+    <ClInclude Include="include\TextFileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLLog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
