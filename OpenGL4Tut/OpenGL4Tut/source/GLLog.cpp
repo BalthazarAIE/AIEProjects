@@ -26,7 +26,7 @@ bool gl_log (const char* message, const char* filename, int line) {
   return true;
 }
 
-void printShaderInfoLog(GLuint obj)
+bool printShaderInfoLog(GLuint obj)
 {
 	int infologLength = 0;
 	int charsWritten  = 0;
@@ -40,9 +40,11 @@ void printShaderInfoLog(GLuint obj)
 		glGetShaderInfoLog(obj, infologLength, &charsWritten, infoLog);
 		printf("%s\n",infoLog);
 		free(infoLog);
+		return false;
 	}
+	return true;
 }
-void printProgramInfoLog(GLuint obj)
+bool printProgramInfoLog(GLuint obj)
 {
 	int infologLength = 0;
 	int charsWritten  = 0;
@@ -56,7 +58,9 @@ void printProgramInfoLog(GLuint obj)
 		glGetProgramInfoLog(obj, infologLength, &charsWritten, infoLog);
 		printf("%s\n",infoLog);
 		free(infoLog);
+	return false;
 	}
+	return true;
 }
 
 void log_gl_params () {

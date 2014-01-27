@@ -20,7 +20,7 @@
 #include <assert.h>
 #include <functional>
 
-
+/*
 struct Vertex
 {
 	union
@@ -37,11 +37,10 @@ struct Vertex
 			float X, Y, Z, W;
 			float R, G, B, A;
 			float U, V;
-		};*/
+		};
 	};
-};
+};*/
 
 GLuint LoadTexture(const char* a_szTexture, unsigned int a_uiFormat , unsigned int* a_uiWidth , unsigned int* a_uiHeight, unsigned int* a_uiBPP  );
-void printShaderInfoLog(GLuint obj);
 
 #endif

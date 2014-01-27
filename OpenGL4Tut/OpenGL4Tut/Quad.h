@@ -13,10 +13,15 @@ public:
 
 	int m_iVertexCount;
 
-	float * m_afVertexArray;
+	float m_afVertexArray[12];
+	float m_afColorArray[16];
+	float m_afUVArray[8];
 
 	GLuint m_VBO;
+	GLuint m_CBO;
+	GLuint m_UBO;
 	GLuint m_VAO;
+	GLuint m_EBO;
 	
 	GLuint m_FragmentShader;
 	GLuint m_VertexShader;

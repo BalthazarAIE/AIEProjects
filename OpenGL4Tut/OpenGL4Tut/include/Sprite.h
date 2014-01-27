@@ -12,12 +12,12 @@ public:
 
 private:
 	
-	tbyte::Vector3 vPosition;
-	tbyte::Vector4 vColor;
+//	tbyte::Vector3 vPosition;
+//	tbyte::Vector4 vColor;
 
 	unsigned int uiTexture;
 
-	Vertex Quad[4];
+//	Vertex Quad[4];
 
 
 

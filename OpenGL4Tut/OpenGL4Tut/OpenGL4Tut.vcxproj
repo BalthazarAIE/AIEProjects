@@ -40,6 +40,7 @@
     <IncludePath>$(ProjectDir)/include;$(ProjectDir)../libs/glm/glm;$(ProjectDir)../libs/glfw3/include;$(ProjectDir)../libs/FreeImage/include;$(ProjectDir)../libs/glew/include;$(ProjectDir)../libs/TerrehByteMath/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)../libs/TerrehByteMath/lib;$(ProjectDir)../libs/FreeImage/lib;$(ProjectDir)../libs/glfw3/lib-msvc110;$(ProjectDir)../libs/glew/lib/;$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)/source;$(SourcePath)</SourcePath>
+    <ExecutablePath>$(ProjectDir)../libs/TerrehByteMath/lib;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
