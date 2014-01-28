@@ -52,8 +52,10 @@ Sprite::Sprite(void)
 Sprite::~Sprite(void)
 {
 }
-Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vector4 a_v4Color )
+Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vector4 a_v4Color ,GLFWwindow * window)
 {
+
+	GameWindow = window;
 	//Default Shaders for Default constructor
 
 	const char * VertexShader =	// Vertex Shaders deal with objects in 3D space
@@ -164,18 +166,18 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 	glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(7 * sizeof(float)));
 
 	glBindVertexArray(0);
-
-	m_m4Matrix = mat4(
+	m_v3Position = tbyte::Vector3(0,0,0);
+	modelMatrix =new float[16];	
+	float temp[]= 
+	{
 		1,0,0,0,
 		0,1,0,0,
 		0,0,1,0,
-		0,0,0,1);
+		0,0,0,1
+	};
+	memcpy(modelMatrix,temp,16*sizeof(float)); //not sure of a better way
 
 	matrix_location = glGetUniformLocation (m_ShaderProgram, "matrix");
-
-	
-	SetSize(a_iWidth,a_iHeight);
-
 
 	m_uiTexture = 0;
 	m_minUVCoords = tbyte::Vector2( 0.f, 0.f );
@@ -213,10 +215,12 @@ void Sprite::Draw()
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture( GL_TEXTURE_2D, m_uiTexture );
 	glUniform1i (tex_loc, 0); 
-	mat4 m4Scale;
-	m4Scale.Scale(m_v2Scale);
-	m4Scale = m4Scale *m_m4Matrix;
-	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, m_m4Matrix);
+	
+	modelMatrix[12] = m_v3Position.m_fX;
+	modelMatrix[13] = m_v3Position.m_fY;
+	modelMatrix[14] = m_v3Position.m_fZ;
+	
+	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBindVertexArray(m_VAO);
@@ -227,7 +231,25 @@ void Sprite::Draw()
 
 void Sprite::Input()
 {
+	  if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_W))
+        {
+			m_v3Position += tbyte::Vector3(0.0f, 0.005f, 0.0f);
+	  }
 
+        if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_A))
+        {
+                m_v3Position += tbyte::Vector3(-0.005f, 0.0f, 0.0f);
+        }
+
+        if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_S))
+        {
+			m_v3Position += tbyte::Vector3(0.0f, -0.005f, 0.0f);
+		}
+
+        if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_D))
+        {
+                 m_v3Position += tbyte::Vector3(0.005f, 0.0f, 0.0f);
+        }
 
 }
 

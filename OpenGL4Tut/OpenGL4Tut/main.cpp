@@ -110,7 +110,7 @@ float last_position = 0.0f;
 
 //Quad * tester = new Quad();
 
-Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(1,1,1,1)); 
+Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(1,1,1,1),window); 
 
 //int matrix_location = glGetUniformLocation (shaderProgram, "matrix");
 //glUniform1i(glGetUniformLocation(shaderProgram, "Texture"), 0);
@@ -152,7 +152,7 @@ Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(
 		// draw points 0-3 from the currently bound VAO with current in-use shader
 //		glDrawArrays (GL_TRIANGLES, 0, 3);
 
-
+		tester->Input();
 		tester->Draw();
 
 		// update other events like input handling 
