@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "Utilities.h"
 #include "Quad.h"
+#include "Sprite.h"
 
 
 // keep track of window size for things like the viewport and the mouse cursor
@@ -106,7 +107,10 @@ int main()
 
 	float speed = 1.0f; // move at 1 unit per second
 float last_position = 0.0f;
-Quad * tester = new Quad();
+
+//Quad * tester = new Quad();
+
+Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(1,1,1,1)); 
 
 //int matrix_location = glGetUniformLocation (shaderProgram, "matrix");
 //glUniform1i(glGetUniformLocation(shaderProgram, "Texture"), 0);

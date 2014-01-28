@@ -30,7 +30,7 @@
     <ClCompile Include="source\Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Quad.cpp">
+    <ClCompile Include="source\Quad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,11 +44,19 @@
     <ClInclude Include="include\Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Quad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\GLLog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Quad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\TerrehByteMath\include\TerrehByteMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\megamanx.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

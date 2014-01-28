@@ -4,22 +4,22 @@
 Quad::Quad(void)
 {
 
-	m_iVertexCount = 4;
+	
 	//Default Shaders for Default constructor
 
 	const char * VertexShader =	// Vertex Shaders deal with objects in 3D space
-		"#version 400\n"
+		"#version 330\n"
 		"layout(location = 0) in vec3 position;"
-		"layout(location = 1) in vec3 color;"
+		"layout(location = 1) in vec4 color;"
 		//"in vec2 texcoord;"
-		"out vec3 vColor;"
+		"out vec4 vColor;"
 		"void main() {"
 		"	vColor = color;"
 		"	gl_Position = vec4 (position, 1.0);"
 		"}";
 
 	const char * FragmentShader =	// Fragment Shaders dela with pixel data
-		"#version 400\n"
+		"#version 330\n"
 		"in vec4 vColor;"
 		//"in vec2 texcoord;"
 		"out vec4 outColour;"
@@ -59,9 +59,9 @@ Quad::Quad(void)
 
 	GLfloat points[] = 
 	{
-		-0.5f, -0.5f,  0.0f,  1.0f, 0.0f,  0.0f, 1.0,
 		-0.5f,  0.5f,  0.0f,  0.0f, 1.0f,  0.0f, 1.0,
 		 0.5f,  0.5f,  0.0f,  0.0f, 0.0f,  1.0f, 1.0,
+		-0.5f, -0.5f,  0.0f,  1.0f, 0.0f,  0.0f, 1.0,
 		 0.5f, -0.5f,  0.0f,  1.0f, 1.0f,  1.0f ,1.0
 	};
 	glBufferData(GL_ARRAY_BUFFER,sizeof(points),points,	GL_STATIC_DRAW);
@@ -83,6 +83,13 @@ Quad::Quad(void)
 
 	glVertexAttribPointer(colAttrib, 4, GL_FLOAT, GL_FALSE, 7*(sizeof(float)),  (void*)(3 * sizeof(GLfloat)));
 
+	glGenBuffers(1, &m_EBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
+	GLuint elements[] =
+	{
+		0,1,2,3
+	};
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(elements), elements, GL_STATIC_DRAW);
 
 	/*		glGenBuffers(1, &m_UBO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_UBO);
@@ -163,8 +170,9 @@ void Quad::Draw()
 {
 	glUseProgram(m_ShaderProgram);
 
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBindVertexArray(m_VAO);
 
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);	
+	glDrawElements(GL_TRIANGLE_STRIP, 6,GL_UNSIGNED_INT,0);	
 
 }

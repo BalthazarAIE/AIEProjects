@@ -2,8 +2,8 @@
 
 
 GLuint LoadTexture(const char* a_szTexture, unsigned int a_uiFormat 
-					/* =GL_RGBA */, unsigned int* a_uiWidth /* = nullptr */, 
-					unsigned int* a_uiHeight /* = nullptr */, unsigned int* a_uiBPP  = nullptr)
+					 =GL_RGBA , unsigned int* a_uiWidth  = nullptr , 
+					unsigned int* a_uiHeight  = nullptr , unsigned int* a_uiBPP  = nullptr)
 {
 	FIBITMAP* pBitmap = nullptr;
 	// check the file signature and deduce its format and load it

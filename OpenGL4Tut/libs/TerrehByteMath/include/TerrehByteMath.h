@@ -133,6 +133,9 @@ namespace tbyte
 
 		// Return what the caller would be when normalized
 		Vector4	GetNormal();
+		void Normalise();
+		Vector4 Cross(const Vector4 & v) const;
+		 float Dot(const Vector4 & v) const;
 
 		// Reconstructs the caller to be comrpised of hex color values
 		Vector4	ConstructFromHex(
@@ -145,6 +148,7 @@ namespace tbyte
 		// Reconstructs the caller to be comrpised of hex color values
 		Vector4	ConstructFromHex(int a_iHEXValue);
 
+
 		// Operators overloaded - see parameters
 		Vector4	operator + (const Vector4 &a_Addend);
 		Vector4	operator + (const float &a_fAddendScalar);
@@ -152,6 +156,7 @@ namespace tbyte
 		Vector4 operator += (const float &a_fAddendScalar);
 
 		Vector4 operator - (const Vector4 &a_Subtrahend);
+		Vector4 operator - (const Vector4 &a_Subtrahend) const;
 		Vector4 operator - (const float &a_fSubtrahendScalar);
 		Vector4 operator -= (const Vector4 &a_Addend);
 		Vector4 operator -= (const float &a_fSubtrahendScalar);
@@ -165,7 +170,26 @@ namespace tbyte
 		Vector4	operator = (const Vector4 &a_Source);
 		bool	operator == (const Vector4 &a_Source);
 	};
-
+	inline void Vector4::Normalise()
+	{
+		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY + m_fZ*m_fZ);
+		m_fX /= fMag;
+		m_fY /= fMag;
+		m_fZ /= fMag;
+		m_fW = 0;
+	}
+	inline Vector4 Vector4::Cross(const Vector4 & v) const
+	{
+		return Vector4(m_fY * v.m_fZ - v.m_fY  * m_fZ, m_fZ * v.m_fX - v.m_fZ * m_fX, m_fX * v.m_fY  - v.m_fX * m_fY , 0);
+	} 
+	inline float Vector4::Dot(const Vector4 & v) const
+	{
+		return m_fX * v.m_fX + m_fY * v.m_fY + m_fZ * v.m_fZ;
+	}
+	inline Vector4 Vector4::operator - (const Vector4 &a_Subtrahend) const
+	{
+		return Vector4( m_fX - a_Subtrahend.m_fX,+ m_fY - a_Subtrahend.m_fY, m_fZ - a_Subtrahend.m_fZ,m_fW);
+	}
 	class Matrix3
 	{
 	public:
