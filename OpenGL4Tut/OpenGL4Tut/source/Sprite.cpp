@@ -70,7 +70,6 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 		"	UV = texcoord;"
 		"	gl_Position = matrix * vec4 (position, 1.0);"
 		"	vColor = color;"
-
 		"}";
 
 	const char * FragmentShader =	// Fragment Shaders dela with pixel data
@@ -102,7 +101,6 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 
 	glLinkProgram(m_ShaderProgram);
 	printProgramInfoLog(m_ShaderProgram);
-
 	glUseProgram(m_ShaderProgram);
 
 	m_v4SpriteColor = a_v4Color;
@@ -192,7 +190,7 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 	glActiveTexture (GL_TEXTURE0);
 
 	int width, height;
-	unsigned char* image = SOIL_load_image("../resources/megamanx.png", &width, &height, 0, SOIL_LOAD_RGBA);
+	unsigned char* image = SOIL_load_image(a_pTexture, &width, &height, 0, SOIL_LOAD_RGBA);
 	glBindTexture( GL_TEXTURE_2D,m_uiTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	SOIL_free_image_data(image);
@@ -213,12 +211,12 @@ void Sprite::Draw()
 	glBlendFunc (m_uSourceBlendMode, m_uDestinationBlendMode);
 	glUseProgram(m_ShaderProgram);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture( GL_TEXTURE_2D, m_uiTexture );
 	glUniform1i (tex_loc, 0); 
 	
 	modelMatrix[12] = m_v3Position.m_fX;
 	modelMatrix[13] = m_v3Position.m_fY;
 	modelMatrix[14] = m_v3Position.m_fZ;
+	
 	
 	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix);
 
