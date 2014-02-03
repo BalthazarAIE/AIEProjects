@@ -22,6 +22,7 @@ private:
 	Vertex m_aoVerts[4];
 
 	float * modelMatrix;
+	Mat4 viewMatrix;
 
 	tbyte::Vector2 m_v2Scale;
 	tbyte::Vector3 m_v3Position;
@@ -40,8 +41,11 @@ private:
 	//used later
 	unsigned int	m_uSourceBlendMode;
 	unsigned int	m_uDestinationBlendMode;
-	int tex_loc;
+	int tex_location;
 	int matrix_location;
+	int proj_location;
+	int view_location;
+
 };
 
 

@@ -66,9 +66,11 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 		"out vec2 UV;"
 		"out vec4 vColor;"
 		"uniform mat4 matrix;" // our matrix
+		"uniform mat4 projection;" //projection matrix
+		"uniform mat4 view;" //projection matrix
 		"void main() {"
 		"	UV = texcoord;"
-		"	gl_Position = matrix * vec4 (position, 1.0);"
+		"	gl_Position =  matrix * vec4 (position, 1.0);"
 		"	vColor = color;"
 		"}";
 
@@ -164,6 +166,7 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 	glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(7 * sizeof(float)));
 
 	glBindVertexArray(0);
+	m_v2Scale = tbyte::Vector2(a_iWidth,a_iHeight);
 	m_v3Position = tbyte::Vector3(0,0,0);
 	modelMatrix =new float[16];	
 	float temp[]= 
@@ -173,9 +176,14 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 		0,0,1,0,
 		0,0,0,1
 	};
+
+	
 	memcpy(modelMatrix,temp,16*sizeof(float)); //not sure of a better way
 
+	viewMatrix.lookAt(tbyte::Vector3(0,0,-1),tbyte::Vector3(0,0,0),tbyte::Vector3(0,1,0));
+
 	matrix_location = glGetUniformLocation (m_ShaderProgram, "matrix");
+
 
 	m_uiTexture = 0;
 	m_minUVCoords = tbyte::Vector2( 0.f, 0.f );
@@ -200,9 +208,12 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	tex_loc = glGetUniformLocation (m_ShaderProgram, "diffuseTexture");
-	glUseProgram (m_ShaderProgram);
-	glUniform1i (tex_loc, 0); // use active texture 0
+
+	tex_location = glGetUniformLocation (m_ShaderProgram, "diffuseTexture");
+	
+	proj_location = glGetUniformLocation (m_ShaderProgram, "projection");
+	
+	view_location = glGetUniformLocation (m_ShaderProgram, "view");
 
 }
 
@@ -211,14 +222,19 @@ void Sprite::Draw()
 	glBlendFunc (m_uSourceBlendMode, m_uDestinationBlendMode);
 	glUseProgram(m_ShaderProgram);
 	glActiveTexture(GL_TEXTURE0);
-	glUniform1i (tex_loc, 0); 
+	glUniform1i (tex_location, 0); 
 	
+	
+//	modelMatrix[0] = m_v2Scale.m_fX;
+//	modelMatrix[5] = m_v2Scale.m_fY;
 	modelMatrix[12] = m_v3Position.m_fX;
 	modelMatrix[13] = m_v3Position.m_fY;
-	modelMatrix[14] = m_v3Position.m_fZ;
+	modelMatrix[14] = 0.f;
 	
 	
 	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix);
+	glUniformMatrix4fv (view_location, 1, GL_FALSE, viewMatrix.m);
+	glUniformMatrix4fv (proj_location, 1, GL_FALSE, Ortho);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBindVertexArray(m_VAO);

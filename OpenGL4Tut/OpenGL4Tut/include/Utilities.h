@@ -21,6 +21,39 @@
 #include <functional>
 
 
+struct Mat4
+{
+	float m[16];
+
+	void lookAt(tbyte::Vector3 & eye,tbyte::Vector3 & center,tbyte::Vector3& up)
+	{
+		tbyte::Vector3  f = tbyte::Vector3(center - eye);
+		f.Normalise();
+		tbyte::Vector3  u = tbyte::Vector3(up);
+		u.Normalise();
+		tbyte::Vector3  s = f.GetCrossProduct(u);
+		s = s.GetCrossProduct(f);
+	
+		m[0] = s.m_fX;
+		m[1] = s.m_fY;
+		m[2] = s.m_fZ;
+		m[3] = 0;
+		m[4] = u.m_fX;
+		m[5] = u.m_fY;
+		m[6] = u.m_fZ;
+		m[7] = 0;
+		m[8] = -f.m_fX;
+		m[9] = -f.m_fY;
+		m[10] = -f.m_fZ;
+		m[11] = 0;
+		m[12] = s.GetDotProduct(eye);
+		m[13] = u.GetDotProduct(eye);
+		m[14] = f.GetDotProduct(eye);
+		m[15] = 1;
+	}
+};
+
+
 struct Vertex
 {
 	union
@@ -34,7 +67,7 @@ struct Vertex
 		
 		struct
 		{
-			float X, Y, Z, W;
+			float X, Y, Z;
 			float R, G, B, A;
 			float U, V;
 		};
@@ -43,9 +76,18 @@ struct Vertex
 
 	bool operator == (const Vertex& rhs)
 	{
-		return (X == rhs.X && Y == rhs.Y && Z == rhs.Z && W == rhs.W && U == rhs.U && V == rhs.V && R == rhs.R && G == rhs.G && B == rhs.B && A == rhs.A );
+		return (X == rhs.X && Y == rhs.Y && Z == rhs.Z && U == rhs.U && V == rhs.V && R == rhs.R && G == rhs.G && B == rhs.B && A == rhs.A );
 	}
 };
+
+const float Ortho[16]=
+{
+	(1/(640/2)),0.f,		0.f,				0.f,
+	0.f,		(1/(480/2)),0.f,				0.f,
+	0.f,		0.f,		(-1/(1-(0)/2)),   (-(1+(0))/(1-(0))),
+	0.f,		0.f,		0.f,				1.f
+};
+
 
 //////////////////////////////////////////////////////////////////////////
 // A 4D matrix class

@@ -96,39 +96,17 @@ int main()
 
 
 	
-	//Column Major Order 
-	float matrix[] =
-	{
-		1.0,0.0f,0.0f,0.0f, //first column
-		0.0,1.0f,0.0f,0.0f, //second column
-		0.0,0.0f,1.0f,0.0f, //third column
-		0.5,0.0f,0.0f,1.0f  //fourth column
-	};
-
-	float speed = 1.0f; // move at 1 unit per second
-float last_position = 0.0f;
 
 //Quad * tester = new Quad();
 
 Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(1,1,1,1),window); 
 
-//int matrix_location = glGetUniformLocation (shaderProgram, "matrix");
-//glUniform1i(glGetUniformLocation(shaderProgram, "Texture"), 0);
+
 
 
 	while (!glfwWindowShouldClose (window)) {
 
-		/* add a timer for doing animation
-  static double previous_seconds = glfwGetTime ();
-  double current_seconds = glfwGetTime ();
-  double elapsed_seconds = current_seconds - previous_seconds;
-  previous_seconds = current_seconds;
-   // reverse direction when going to far left or right
-  if (fabs(last_position) > 1.0f) {
-    speed = -speed;
-  }
-  */
-
+		
 		glEnable (GL_CULL_FACE); // cull face
 		glCullFace (GL_BACK); // cull back face
 		glFrontFace (GL_CW); // GL_CCW for counter clock-wise
@@ -138,24 +116,10 @@ Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(
 		//resize window
 		glViewport (0, 0, g_gl_width, g_gl_height);
 
-	
-		
-		  // update the matrix
-//  matrix[12] = elapsed_seconds * speed + last_position;
-//  last_position = matrix[12];
-		//set the shader for this VAO
-//		glUseProgram (shaderProgram);
-		//Here is where we attach the marix
-//		glUniformMatrix4fv (matrix_location, 1, GL_FALSE, matrix);
-		//bind the VAO to be drawn
-//		glBindVertexArray (VAO);
-		// draw points 0-3 from the currently bound VAO with current in-use shader
-//		glDrawArrays (GL_TRIANGLES, 0, 3);
-
 		tester->Input();
 		tester->Draw();
 
-		// update other events like input handling 
+
 		glfwPollEvents ();
 		// put the stuff we've been drawing onto the display
 		glfwSwapBuffers (window);

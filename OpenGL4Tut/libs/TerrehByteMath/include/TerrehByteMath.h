@@ -84,6 +84,7 @@ namespace tbyte
 
 		// Return what the caller would be when normalized
 		Vector3	GetNormal();
+		void Normalise();
 
 		// Returns the cross product between caller and term
 		Vector3	GetCrossProduct(const Vector3 &a_Term);
@@ -113,6 +114,13 @@ namespace tbyte
 		Vector3	operator = (const Vector3 &a_Source);
 		bool	operator == (const Vector3 &a_Source);
 	};
+	inline void Vector3::Normalise()
+	{
+		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY + m_fZ*m_fZ);
+		m_fX /= fMag;
+		m_fY /= fMag;
+		m_fZ /= fMag;
+	}
 
 	class Vector4
 	{
