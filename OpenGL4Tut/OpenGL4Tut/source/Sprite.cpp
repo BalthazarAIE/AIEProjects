@@ -168,19 +168,15 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 	glBindVertexArray(0);
 	m_v2Scale = tbyte::Vector2(a_iWidth,a_iHeight);
 	m_v3Position = tbyte::Vector3(0,0,0);
-	modelMatrix =new float[16];	
-	float temp[]= 
-	{
-		1,0,0,0,
-		0,1,0,0,
-		0,0,1,0,
-		0,0,0,1
-	};
+	
+	modelMatrix = new tbyte::Matrix4();
+	viewMatrix = new tbyte::Matrix4();
+
+	*modelMatrix  = *viewMatrix = modelMatrix->MakeIdentityMatrix();
+	
 
 	
-	memcpy(modelMatrix,temp,16*sizeof(float)); //not sure of a better way
-
-	viewMatrix.lookAt(tbyte::Vector3(0,0,-1),tbyte::Vector3(0,0,0),tbyte::Vector3(0,1,0));
+	
 
 	matrix_location = glGetUniformLocation (m_ShaderProgram, "matrix");
 
@@ -227,14 +223,12 @@ void Sprite::Draw()
 	
 //	modelMatrix[0] = m_v2Scale.m_fX;
 //	modelMatrix[5] = m_v2Scale.m_fY;
-	modelMatrix[12] = m_v3Position.m_fX;
-	modelMatrix[13] = m_v3Position.m_fY;
-	modelMatrix[14] = 0.f;
+	 
 	
 	
-	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix);
-	glUniformMatrix4fv (view_location, 1, GL_FALSE, viewMatrix.m);
-	glUniformMatrix4fv (proj_location, 1, GL_FALSE, Ortho);
+	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix->m_afArray);
+	//glUniformMatrix4fv (view_location, 1, GL_FALSE, viewMatrix.m);
+	//glUniformMatrix4fv (proj_location, 1, GL_FALSE, Ortho);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBindVertexArray(m_VAO);

@@ -5,6 +5,7 @@
 #include "Quad.h"
 #include <SOIL.h>
 
+
 class Sprite: public Quad
 {
 public:
@@ -21,8 +22,8 @@ private:
 	
 	Vertex m_aoVerts[4];
 
-	float * modelMatrix;
-	Mat4 viewMatrix;
+	tbyte::Matrix4* modelMatrix;
+	tbyte::Matrix4* viewMatrix;
 
 	tbyte::Vector2 m_v2Scale;
 	tbyte::Vector3 m_v3Position;
