@@ -58,5 +58,7 @@
     <None Include="..\resources\megamanx.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\resources\exampleFrag.glsl" />
+    <None Include="..\resources\exampleVert.glsl" />
   </ItemGroup>
 </Project>

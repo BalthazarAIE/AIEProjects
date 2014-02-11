@@ -1,14 +1,14 @@
 #version 330
-
-in vec4 position;
-in vec2 texcoord;
-
-
-out vec2 vTexcoord;
-out vec4 vColor;
-
+	in vec3 position;
+	in vec4 color;
+	in vec2 texcoord;
+	out vec2 UV;
+	out vec4 vColor;
+	uniform mat4 matrix; // our matrix
+	uniform mat4 projection; //projection matrix
 
 void main() {
-	vTexcoord = texcoord ;
-	gl_Position = position;
+	UV = texcoord;
+	gl_Position = matrix *  vec4 (position, 1.0);
+	vColor = color;
 }

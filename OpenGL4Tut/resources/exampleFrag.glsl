@@ -1,13 +1,8 @@
-#version 150
-
-in vec3 Color;
-in vec2 Texcoord;
-
-out vec4 outColor;
-
-uniform sampler2D tex;
-
-void main()
-{
-    outColor = texture(tex, Texcoord) * vec4(Color, 1.0);
+#version 330
+	in vec4 vColor;
+	in vec2 UV;
+	out vec4 outColour;
+	uniform sampler2D diffuseTexture;
+void main () {
+	outColour =  texture2D(diffuseTexture, UV) * vColor;
 }
