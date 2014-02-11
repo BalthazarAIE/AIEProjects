@@ -288,6 +288,7 @@ namespace tbyte
 		Matrix4	operator -= (const float &a_SubtrahendScalar);
 
 		Matrix4	operator * (const Matrix4 &a_Factor);
+		Matrix4	operator * (Matrix4 &a_Factor);
 		Matrix4	operator * (const float &a_FactorScalar);
 		Matrix4	operator *= (const Matrix4 &a_Factor);
 		Matrix4	operator *= (const float &a_FactorScalar);
@@ -303,9 +304,97 @@ namespace tbyte
 
 
 	};
-
-	inline Matrix4	Matrix4::operator * (const tbyte::Vector3 &a_Vector)
+	inline Matrix4	Matrix4::operator * (Matrix4 &a_Factor)
 	{
+		
+		Matrix4 tempMatrix;
+		
+		// row 1
+
+		tempMatrix.m_afArray[0] =	m_afArray[0] * a_Factor.m_afArray[0] +
+										m_afArray[4] * a_Factor.m_afArray[1] +
+										m_afArray[8] * a_Factor.m_afArray[2] +
+										m_afArray[12] * a_Factor.m_afArray[3];
+
+		tempMatrix.m_afArray[4] =	m_afArray[0] * a_Factor.m_afArray[4] +
+										m_afArray[4] * a_Factor.m_afArray[5] +
+										m_afArray[8] * a_Factor.m_afArray[6] +
+										m_afArray[12] * a_Factor.m_afArray[7];
+		
+		tempMatrix.m_afArray[8] =	m_afArray[0] * a_Factor.m_afArray[8] +
+										m_afArray[4] * a_Factor.m_afArray[9] +
+										m_afArray[8] * a_Factor.m_afArray[10] +
+										m_afArray[12] * a_Factor.m_afArray[11];
+
+		tempMatrix.m_afArray[12] =	m_afArray[0] * a_Factor.m_afArray[12] +
+										m_afArray[4] * a_Factor.m_afArray[13] +
+										m_afArray[8] * a_Factor.m_afArray[14] +
+										m_afArray[12] * a_Factor.m_afArray[15];
+		// row 2
+
+		tempMatrix.m_afArray[1] =	m_afArray[1] * a_Factor.m_afArray[0] +
+										m_afArray[5] * a_Factor.m_afArray[1] +
+										m_afArray[9] * a_Factor.m_afArray[2] +
+										m_afArray[13] * a_Factor.m_afArray[3];
+
+		tempMatrix.m_afArray[5] =	m_afArray[1] * a_Factor.m_afArray[4] +
+										m_afArray[5] * a_Factor.m_afArray[5] +
+										m_afArray[9] * a_Factor.m_afArray[6] +
+										m_afArray[13] * a_Factor.m_afArray[7];
+
+		tempMatrix.m_afArray[9] =	m_afArray[1] * a_Factor.m_afArray[8] +
+										m_afArray[5] * a_Factor.m_afArray[9] + 
+										m_afArray[9] * a_Factor.m_afArray[10] +
+										m_afArray[13] * a_Factor.m_afArray[11];
+
+		tempMatrix.m_afArray[13] =	m_afArray[1] * a_Factor.m_afArray[12] +
+										m_afArray[5] * a_Factor.m_afArray[13] + 
+										m_afArray[9] * a_Factor.m_afArray[14] +
+										m_afArray[13] * a_Factor.m_afArray[15];
+
+		// row 3
+		tempMatrix.m_afArray[2] =	m_afArray[2] * a_Factor.m_afArray[0] +
+										m_afArray[6] * a_Factor.m_afArray[1] +
+										m_afArray[10] * a_Factor.m_afArray[2] +
+										m_afArray[14] * a_Factor.m_afArray[3];
+
+		tempMatrix.m_afArray[6] =	m_afArray[2] * a_Factor.m_afArray[4] +
+										m_afArray[6] * a_Factor.m_afArray[5] +
+										m_afArray[10] * a_Factor.m_afArray[6] +
+										m_afArray[14] * a_Factor.m_afArray[7];
+		
+		tempMatrix.m_afArray[10] =	m_afArray[2] * a_Factor.m_afArray[8] +
+										m_afArray[6] * a_Factor.m_afArray[9] +
+										m_afArray[10] * a_Factor.m_afArray[10] +
+										m_afArray[14] * a_Factor.m_afArray[11];
+
+		tempMatrix.m_afArray[14] =	m_afArray[2] * a_Factor.m_afArray[12] +
+										m_afArray[6] * a_Factor.m_afArray[13] +
+										m_afArray[10] * a_Factor.m_afArray[14] +
+										m_afArray[14] * a_Factor.m_afArray[15];
+
+		// row 4
+		tempMatrix.m_afArray[3] =	m_afArray[3] * a_Factor.m_afArray[0] +
+										m_afArray[7] * a_Factor.m_afArray[1] +
+										m_afArray[11] * a_Factor.m_afArray[2] +
+										m_afArray[15] * a_Factor.m_afArray[3];
+
+		tempMatrix.m_afArray[7] =	m_afArray[3] * a_Factor.m_afArray[4] +
+										m_afArray[7] * a_Factor.m_afArray[5] +
+										m_afArray[11] * a_Factor.m_afArray[6] +
+										m_afArray[15] * a_Factor.m_afArray[7];
+		
+		tempMatrix.m_afArray[11] =	m_afArray[3] * a_Factor.m_afArray[8] +
+										m_afArray[7] * a_Factor.m_afArray[9] +
+										m_afArray[11] * a_Factor.m_afArray[10] +
+										m_afArray[15] * a_Factor.m_afArray[11];
+
+		tempMatrix.m_afArray[15] =	m_afArray[3] * a_Factor.m_afArray[12] +
+										m_afArray[7] * a_Factor.m_afArray[13] +
+										m_afArray[11] * a_Factor.m_afArray[14] +
+										m_afArray[15] * a_Factor.m_afArray[15];
+
+		return tempMatrix;
 
 
 	}

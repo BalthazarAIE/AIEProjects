@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _UTIL_H_
 #define _UTIL_H_
 #include <GL\glew.h>
@@ -21,6 +22,10 @@
 #include <functional>
 
 
+
+using namespace tbyte;
+
+extern Matrix4 * Ortho;
 
 
 struct Vertex
@@ -52,13 +57,13 @@ struct Vertex
 
 
 
-	void ViewLookAt( tbyte::Vector4& eye,  tbyte::Vector4& to,  tbyte::Vector4& up);
+	void ViewLookAt( tbyte::Vector4& eye,  tbyte::Vector4& to,  tbyte::Vector4& up,tbyte::Matrix4 * mat);
 
-	void Orthographic(float a_fLeft, float a_fRight, float a_fTop, float a_fBottom, float a_fNear, float a_fFar,tbyte::Matrix4 & mat );
+	void Orthographic(float a_fLeft, float a_fRight, float a_fTop, float a_fBottom, float a_fNear, float a_fFar,tbyte::Matrix4 * mat);
 
-	void Orthographic(float a_fWidth, float a_fHeight, float a_fNear, float a_fFar,tbyte::Matrix4 & mat);
+	void Orthographic(float a_fWidth, float a_fHeight, float a_fNear, float a_fFar,tbyte::Matrix4 * mat);
 
-	void Perspective(float a_fUpFOV, float a_fAspectRatio, float a_fNear, float a_fFar,tbyte::Matrix4 & mat);
+	void Perspective(float a_fUpFOV, float a_fAspectRatio, float a_fNear, float a_fFar,tbyte::Matrix4 * mat);
 
 
 

@@ -67,10 +67,10 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 		"out vec4 vColor;"
 		"uniform mat4 matrix;" // our matrix
 		"uniform mat4 projection;" //projection matrix
-		"uniform mat4 view;" //projection matrix
+		"uniform mat4 view;" //view matrix
 		"void main() {"
 		"	UV = texcoord;"
-		"	gl_Position =  matrix * vec4 (position, 1.0);"
+		"	gl_Position =  projection *view* matrix *  vec4 (position, 1.0);"
 		"	vColor = color;"
 		"}";
 
@@ -174,9 +174,12 @@ Sprite::Sprite( const char* a_pTexture, int a_iWidth, int a_iHeight, tbyte::Vect
 
 	*modelMatrix  = *viewMatrix = modelMatrix->MakeIdentityMatrix();
 	
+	ViewLookAt(tbyte::Vector4(0,0,0,0),tbyte::Vector4(0,0,.5,0),tbyte::Vector4(0,1,0,0), viewMatrix);
 
-	
-	
+	modelMatrix->m_afArray[12] = m_v3Position.m_fX;
+	modelMatrix->m_afArray[13] = m_v3Position.m_fY;
+	modelMatrix->m_afArray[14] = m_v3Position.m_fZ;
+
 
 	matrix_location = glGetUniformLocation (m_ShaderProgram, "matrix");
 
@@ -221,15 +224,21 @@ void Sprite::Draw()
 	glUniform1i (tex_location, 0); 
 	
 	
-//	modelMatrix[0] = m_v2Scale.m_fX;
-//	modelMatrix[5] = m_v2Scale.m_fY;
-	 
-	
+	modelMatrix->m_afArray[0]   = m_v2Scale.m_fX;
+	modelMatrix->m_afArray[5]  = m_v2Scale.m_fY;
+	modelMatrix->m_afArray[12] = m_v3Position.m_fX;
+	modelMatrix->m_afArray[13] = m_v3Position.m_fY;
+	modelMatrix->m_afArray[14] = m_v3Position.m_fZ;
+
+
+Matrix4 MVP =  (*Ortho * *modelMatrix) ;
+
 	
 	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, modelMatrix->m_afArray);
-	//glUniformMatrix4fv (view_location, 1, GL_FALSE, viewMatrix.m);
-	//glUniformMatrix4fv (proj_location, 1, GL_FALSE, Ortho);
+	glUniformMatrix4fv (view_location, 1, GL_FALSE, viewMatrix->m_afArray);
+	glUniformMatrix4fv (proj_location, 1, GL_FALSE, Ortho->m_afArray);
 
+//	glUniformMatrix4fv (matrix_location, 1, GL_FALSE, MVP.m_afArray);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBindVertexArray(m_VAO);
 
@@ -241,22 +250,22 @@ void Sprite::Input()
 {
 	  if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_W))
         {
-			m_v3Position += tbyte::Vector3(0.0f, 0.005f, 0.0f);
+			m_v3Position += tbyte::Vector3(0.0f, 1.f, 0.0f);
 	  }
 
         if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_A))
         {
-                m_v3Position += tbyte::Vector3(-0.005f, 0.0f, 0.0f);
+                m_v3Position += tbyte::Vector3(-1.f, 0.0f, 0.0f);
         }
 
         if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_S))
         {
-			m_v3Position += tbyte::Vector3(0.0f, -0.005f, 0.0f);
+			m_v3Position += tbyte::Vector3(0.0f, -1.f, 0.0f);
 		}
 
         if (GLFW_PRESS == glfwGetKey(GameWindow, GLFW_KEY_D))
         {
-                 m_v3Position += tbyte::Vector3(0.005f, 0.0f, 0.0f);
+                 m_v3Position += tbyte::Vector3(1.f, 0.0f, 0.0f);
         }
 
 }

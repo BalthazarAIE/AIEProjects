@@ -7,14 +7,13 @@
 
 
 #include <stdio.h>
-#include "Utilities.h"
 #include "Quad.h"
 #include "Sprite.h"
 
 
 // keep track of window size for things like the viewport and the mouse cursor
-int g_gl_width = 640;
-int g_gl_height = 480;
+int g_gl_width = 1024;
+int g_gl_height = 720;
 
 
 // a call-back function
@@ -66,7 +65,7 @@ int main()
 	GLFWwindow* window = glfwCreateWindow (
 		vmode->width, vmode->height, "Extended GL Init",NULL/* mon*/, NULL
 		);
-	glfwSetWindowSize(window, 640, 480);
+	glfwSetWindowSize(window, g_gl_width, g_gl_height);
 
 	if (!window) {
 		fprintf (stderr, "ERROR: could not open window with GLFW3\n");
@@ -93,11 +92,11 @@ int main()
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"
 
 	/* OTHER STUFF GOES HERE NEXT */
-
+	Ortho =  new tbyte::Matrix4();
+	Orthographic(0,g_gl_width,g_gl_height,0,0,-1,Ortho);
 
 	
 
-//Quad * tester = new Quad();
 
 Sprite * tester = new Sprite("../resources/megamanx.png",240,272,tbyte::Vector4(1,1,1,1),window); 
 
